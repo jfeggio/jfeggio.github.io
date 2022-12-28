@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>A Descriptive Analysis of Airbnb accomodations in Bologna | Jessica Feggio</title>
+<meta name="keywords" content="r, programming, descriptive analysis, airbnb">
+<meta name="description" content="Language used: R
+Database used: &ldquo;listing.csv&rdquo; from the website http://insideairbnb.com/get-the-data/ composed by a mix of 18 qualitative and quantitative variables and 3896 cases.
+Packages used: dplyr: to obtain a general descriptive analysis of the data. ggplot2: to create graphs ggmap: to be able to show maps RColorBrewer: to assign colors to the heatmap visualization osmdata: to obtain the geographic coordinates of the city of Bologna hrbrthemes: to obtain more ggplot themes Variables description:">
+<meta name="author" content="">
+<link rel="canonical" href="/posts/airbnb/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.77bd02abf7cbb982b32c1a1988e1e9c38a3f25df151a78dfeb21ccdcb462e1cf.css" integrity="sha256-d70Cq/fLuYKzLBoZiOHpw4o/Jd8VGnjf6yHM3LRi4c8=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="mask-icon" href="safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="A Descriptive Analysis of Airbnb accomodations in Bologna" />
+<meta property="og:description" content="Language used: R
+Database used: &ldquo;listing.csv&rdquo; from the website http://insideairbnb.com/get-the-data/ composed by a mix of 18 qualitative and quantitative variables and 3896 cases.
+Packages used: dplyr: to obtain a general descriptive analysis of the data. ggplot2: to create graphs ggmap: to be able to show maps RColorBrewer: to assign colors to the heatmap visualization osmdata: to obtain the geographic coordinates of the city of Bologna hrbrthemes: to obtain more ggplot themes Variables description:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/airbnb/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-22T20:38:41+01:00" />
+<meta property="article:modified_time" content="2022-12-22T20:38:41+01:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A Descriptive Analysis of Airbnb accomodations in Bologna"/>
+<meta name="twitter:description" content="Language used: R
+Database used: &ldquo;listing.csv&rdquo; from the website http://insideairbnb.com/get-the-data/ composed by a mix of 18 qualitative and quantitative variables and 3896 cases.
+Packages used: dplyr: to obtain a general descriptive analysis of the data. ggplot2: to create graphs ggmap: to be able to show maps RColorBrewer: to assign colors to the heatmap visualization osmdata: to obtain the geographic coordinates of the city of Bologna hrbrthemes: to obtain more ggplot themes Variables description:"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "A Descriptive Analysis of Airbnb accomodations in Bologna",
+      "item": "/posts/airbnb/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A Descriptive Analysis of Airbnb accomodations in Bologna",
+  "name": "A Descriptive Analysis of Airbnb accomodations in Bologna",
+  "description": "Language used: R\nDatabase used: \u0026ldquo;listing.csv\u0026rdquo; from the website http://insideairbnb.com/get-the-data/ composed by a mix of 18 qualitative and quantitative variables and 3896 cases.\nPackages used: dplyr: to obtain a general descriptive analysis of the data. ggplot2: to create graphs ggmap: to be able to show maps RColorBrewer: to assign colors to the heatmap visualization osmdata: to obtain the geographic coordinates of the city of Bologna hrbrthemes: to obtain more ggplot themes Variables description:",
+  "keywords": [
+    "r", "programming", "descriptive analysis", "airbnb"
+  ],
+  "articleBody": "Language used: R\nDatabase used: “listing.csv” from the website http://insideairbnb.com/get-the-data/ composed by a mix of 18 qualitative and quantitative variables and 3896 cases.\nPackages used: dplyr: to obtain a general descriptive analysis of the data. ggplot2: to create graphs ggmap: to be able to show maps RColorBrewer: to assign colors to the heatmap visualization osmdata: to obtain the geographic coordinates of the city of Bologna hrbrthemes: to obtain more ggplot themes Variables description:\nQualitative variables Quantitative variables name: Name of the listing id : Airbnb’s unique identifier for the listing host_name: Name of the host. Usually just the first name(s). host_id : Airbnb’s unique identifier for the host/user room_type: Entire home/apt,Private room,Shared room,Hotel latitude: Uses the World Geodetic System (WGS84) projection for latitude and longitude. neighbourhood_group: N/A longitude : Uses the World Geodetic System (WGS84) projection for latitude and longitude. price : daily price in local currency minimum_nights: minimum number of night stay for the listing (calendar rules may be different) number_of_reviews: The number of reviews the listing has last_review: The date of the last review reviews_per_month: Number of reviews per month calculated_host_listings_count: The number of listings the host has in the current scrape, in the city/region geography. availability_365: avaliability_x. The availability of the listing x days in the future as determined by the calendar. Note a listing may not be available because it has been booked by a guest or blocked by the host. number_of_reviews_ltm: The number of reviews the listing has (in the last 12 months) licence: The licence/permit/registration number Descriptive analysis Translation of some words\nSpanish English Barrio/s Neighbourhood/s Mediana de los precios Median of prices Mediana de las reseñas Median of number of reviews Mediana de número mínimo de noches Median of minimum nights Casa House Habitación de Hotel Hotel room Habitación privada Private room Habitación compartida Shared room Latitud Latitud Longitud Longitude Tipología de alojamiento Accomodation type Precio Price Overall summary For further analysis, it was decided to take into consideration the median values as in the dataset there are some outliers. Eg. Minimum number of nights set at 365 or price per night set at 15.365 Euros for an accomodation that does not even show up on the Airbnb platform.\nMedian of price and n. of reviews depending on accomodation type Rent an entire apt or house is the most popular option among Airbnb’s customers when staying in Bologna.\nMedian of price and n. of reviews per neighbourhood showed on a map Highest median number of reviews and price:\nPorto - Saragozza (close to the city center “fuori le mura”, most populated neighbourhood, close to the main train station) Santo Stefano (city center “dentro le mura”) Accomodation type available to stay for a weekend (two or less nights) with a budget of maximum 25 Euros and in which neighbourhood Most chosen option for a student’s budget for a weekend getaway:\nPrivate room In Santo Stefano or San Donato-San Vitale neighbourhood (city center) ",
+  "wordCount" : "488",
+  "inLanguage": "en",
+  "datePublished": "2022-12-22T20:38:41+01:00",
+  "dateModified": "2022-12-22T20:38:41+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/posts/airbnb/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jessica Feggio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="" accesskey="h" title="Jessica Feggio (Alt + H)">Jessica Feggio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/aboutme/" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      A Descriptive Analysis of Airbnb accomodations in Bologna
+    </h1>
+  </header> 
+  <div class="post-content"><p><strong>Language used</strong>: R</p>
+<p><strong>Database used</strong>: &ldquo;listing.csv&rdquo; from the website <a href="http://insideairbnb.com/get-the-data/">http://insideairbnb.com/get-the-data/</a> composed by a mix of 18 qualitative and quantitative variables and 3896 cases.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Packages used:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>dplyr</strong>: to obtain a general descriptive analysis of the data.</td>
+</tr>
+<tr>
+<td><strong>ggplot2</strong>: to create graphs</td>
+</tr>
+<tr>
+<td><strong>ggmap</strong>: to be able to show maps</td>
+</tr>
+<tr>
+<td><strong>RColorBrewer</strong>: to assign colors to the heatmap visualization</td>
+</tr>
+<tr>
+<td><strong>osmdata</strong>: to obtain the geographic coordinates of the city of Bologna</td>
+</tr>
+<tr>
+<td><strong>hrbrthemes</strong>: to obtain more ggplot themes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variables description</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Qualitative variables</th>
+<th>Quantitative variables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong>: Name of the listing</td>
+<td><strong>id</strong> : Airbnb&rsquo;s unique identifier for the listing</td>
+</tr>
+<tr>
+<td><strong>host_name</strong>: Name of the host. Usually just the first name(s).</td>
+<td><strong>host_id</strong> : Airbnb&rsquo;s unique identifier for the host/user</td>
+</tr>
+<tr>
+<td><strong>room_type</strong>: Entire home/apt,Private room,Shared room,Hotel</td>
+<td><strong>latitude</strong>: Uses the World Geodetic System (WGS84) projection for latitude and longitude.</td>
+</tr>
+<tr>
+<td><strong>neighbourhood_group</strong>: N/A</td>
+<td><strong>longitude</strong> : Uses the World Geodetic System (WGS84) projection for latitude and longitude.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>price</strong> : daily price in local currency</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>minimum_nights</strong>: minimum number of night stay for the listing (calendar rules may be different)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>number_of_reviews</strong>: The number of reviews the listing has</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>last_review</strong>: The date of the last review</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>reviews_per_month</strong>: Number of reviews per month</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>calculated_host_listings_count</strong>: The number of listings the host has in the current scrape, in the city/region geography.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>availability_365</strong>: avaliability_x. The availability of the listing x days in the future as determined by the calendar. Note a listing may not be available because it has been booked by a guest or blocked by the host.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>number_of_reviews_ltm</strong>: The number of reviews the listing has (in the last 12 months)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>licence</strong>: The licence/permit/registration number</td>
+</tr>
+</tbody>
+</table>
+<h3 id="descriptive-analysis">Descriptive analysis<a hidden class="anchor" aria-hidden="true" href="#descriptive-analysis">#</a></h3>
+<p><strong>Translation of some words</strong></p>
+<table>
+<thead>
+<tr>
+<th>Spanish</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Barrio/s</td>
+<td>Neighbourhood/s</td>
+</tr>
+<tr>
+<td>Mediana de los precios</td>
+<td>Median of prices</td>
+</tr>
+<tr>
+<td>Mediana de las reseñas</td>
+<td>Median of number of reviews</td>
+</tr>
+<tr>
+<td>Mediana de número mínimo de noches</td>
+<td>Median of minimum nights</td>
+</tr>
+<tr>
+<td>Casa</td>
+<td>House</td>
+</tr>
+<tr>
+<td>Habitación de Hotel</td>
+<td>Hotel room</td>
+</tr>
+<tr>
+<td>Habitación privada</td>
+<td>Private room</td>
+</tr>
+<tr>
+<td>Habitación compartida</td>
+<td>Shared room</td>
+</tr>
+<tr>
+<td>Latitud</td>
+<td>Latitud</td>
+</tr>
+<tr>
+<td>Longitud</td>
+<td>Longitude</td>
+</tr>
+<tr>
+<td>Tipología de alojamiento</td>
+<td>Accomodation type</td>
+</tr>
+<tr>
+<td>Precio</td>
+<td>Price</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Overall summary</strong>
+<img loading="lazy" src="/taller1_airbnb_table_summary.png" alt="table_summary"  />
+</p>
+<p>For further analysis, it was decided to take into consideration the median values as in the dataset there are some outliers.
+Eg. Minimum number of nights set at 365 or price per night set at 15.365 Euros for an accomodation that does not even show up on the Airbnb platform.</p>
+<p><img loading="lazy" src="/taller1_airbnb_table_2.png" alt=""  />
+</p>
+<p><strong>Median of price and n. of reviews depending on accomodation type</strong>
+<img loading="lazy" src="/taller1_airbnb_scatterplot.png" alt=""  />
+</p>
+<p>Rent an entire apt or house is the most popular option among Airbnb&rsquo;s customers when staying in Bologna.</p>
+<p><strong>Median of price and n. of reviews per neighbourhood showed on a map</strong>
+<img loading="lazy" src="/taller1_airbnb_map_bologna.png" alt=""  />
+</p>
+<p>Highest median number of reviews and price:</p>
+<ul>
+<li>Porto - Saragozza (close to the city center &ldquo;fuori le mura&rdquo;, most populated neighbourhood, close to the main train station)</li>
+<li>Santo Stefano (city center &ldquo;dentro le mura&rdquo;)</li>
+</ul>
+<p><strong>Accomodation type available to stay for a weekend (two or less nights) with a budget of maximum 25 Euros and in which neighbourhood</strong>
+<img loading="lazy" src="/taller1_airbnb_hist.png" alt=""  />
+</p>
+<p>Most chosen option for a student&rsquo;s budget for a weekend getaway:</p>
+<ul>
+<li>Private room</li>
+<li>In Santo Stefano or San Donato-San Vitale neighbourhood (city center)</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="/tags/r/">r</a></li>
+      <li><a href="/tags/programming/">programming</a></li>
+      <li><a href="/tags/descriptive-analysis/">descriptive analysis</a></li>
+      <li><a href="/tags/airbnb/">airbnb</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
