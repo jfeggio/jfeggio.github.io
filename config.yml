@@ -1,0 +1,69 @@
+baseURL: ""
+languageCode: en-us
+title: Jessica Feggio
+theme: PaperMod
+
+
+
+params:
+    profileMode:
+        enabled: true
+        title: "Italian || BI & Systems Reporting Specialist at Henkel" # optional default will be site title
+        subtitle: "Studying || M.Sc. Quantitative Methods for Data Analysis in Organizations at the University of Buenos Aires (UBA)"
+        description: "MBA Turin University"
+        imageUrl: "https://twemoji.maxcdn.com/2/svg/1f36b.svg" # optional
+        imageTitle: "Foto" # optional
+        imageWidth: 120 # custom size
+        imageHeight: 120 # custom size   
+        buttons:
+           - name: "Things I worked on"
+             url: "/tags"
+          #  - name: Github
+          #     url: "https://github.com/" 
+    socialIcons:
+       - name: linkedin
+         url: 'https://www.linkedin.com/'
+    hideFooter: true
+    hideMeta: true
+    label:
+      iconHeight: 15
+  
+
+
+
+        
+# params:
+#   homeInfoParams:
+#     Title: "Hello"
+#     Content: "Welcome"
+#   socialIcons:
+#       - name: linkedin
+#         url: 'https://www.linkedin.com/'
+#   assets:
+#     favicon: "<link / absolute url>"
+#     favicon16x16:  "<link / absolute url>"
+#     favicon32x32:  "<link / absolute url>"
+#     apple_touch_icon:  "<link / absolute url>"
+#     safari_pinned_tab:  "<link / absolute url>"
+menu:
+   main:
+     - identifier: tags
+       name: Tags
+       url: /tags/
+       weight: 40
+     - identifier: categories
+       name: Categories
+       url: /categories/
+       weight: 30
+     - identifier: posts
+       name: Posts
+       url: /posts/
+       weight: 20
+     - identifier: about
+       name: About me
+       url: /aboutme/
+       weight: 10
+     
+
+#       ##pre: <link rel="icon" href="/argentina.png">  
+    
