@@ -1,11 +1,13 @@
-baseURL: ""
+baseURL: "https://jfeggio.github.io/"
 languageCode: en-us
-title: Jessica Feggio
+title: JessicaF
 theme: PaperMod
 
 
 
 params:
+    assets:
+        disableFingerprinting: true
     profileMode:
         enabled: true
         title: "Italian || BI & Systems Reporting Specialist at Henkel" # optional default will be site title
