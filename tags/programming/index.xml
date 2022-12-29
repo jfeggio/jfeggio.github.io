@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>programming on Jessica Feggio</title>
-    <link>/tags/programming/</link>
-    <description>Recent content in programming on Jessica Feggio</description>
+    <title>programming on JFeggio</title>
+    <link>https://jfeggio.github.io/tags/programming/</link>
+    <description>Recent content in programming on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Dec 2022 20:38:41 +0100</lastBuildDate><atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Dec 2022 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Descriptive Analysis of Airbnb accomodations in Bologna</title>
-      <link>/posts/airbnb/</link>
+      <link>https://jfeggio.github.io/posts/airbnb/</link>
       <pubDate>Thu, 22 Dec 2022 20:38:41 +0100</pubDate>
       
-      <guid>/posts/airbnb/</guid>
+      <guid>https://jfeggio.github.io/posts/airbnb/</guid>
       <description>Language used: R
 Database used: &amp;ldquo;listing.csv&amp;rdquo; from the website http://insideairbnb.com/get-the-data/ composed by a mix of 18 qualitative and quantitative variables and 3896 cases.
 Packages used: dplyr: to obtain a general descriptive analysis of the data. ggplot2: to create graphs ggmap: to be able to show maps RColorBrewer: to assign colors to the heatmap visualization osmdata: to obtain the geographic coordinates of the city of Bologna hrbrthemes: to obtain more ggplot themes Variables description:</description>

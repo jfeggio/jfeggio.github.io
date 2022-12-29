@@ -5,20 +5,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>World Happiness Report - A Principal Components Analysis [2/2] | Jessica Feggio</title>
+<title>World Happiness Report - A Principal Components Analysis [2/2] | JFeggio</title>
 <meta name="keywords" content="uni, pca, outliers, correlation, eigenvalues, bartlett, principal components">
 <meta name="description" content="Table of Contents Introduction Descriptive Analysis Outliers Principal Components Analysis Eigenvalues Loadings Correlation between components Components 1 (Quality of Life) and 2 (Economy/Corruption) Components 1 (Quality of Life) and 3 (Social Support/Corruption) Components 2 (Economy/Corruption) and 3 (Social Support/Corruption) Conclusion Introduction Please refer to the Introduction of &ldquo;World Happiness Report - A Cluster Analysis [1/2]&rdquo; as this is the second part of this work.
 Descriptive Analysis Please refer to the Descriptive Analysis of &ldquo;World Happiness Report - A Cluster Analysis [1/2]&rdquo; as this is the second part of this work.">
 <meta name="author" content="">
-<link rel="canonical" href="/posts/whr2/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.77bd02abf7cbb982b32c1a1988e1e9c38a3f25df151a78dfeb21ccdcb462e1cf.css" integrity="sha256-d70Cq/fLuYKzLBoZiOHpw4o/Jd8VGnjf6yHM3LRi4c8=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="mask-icon" href="safari-pinned-tab.svg">
+<link rel="canonical" href="https://jfeggio.github.io/posts/whr2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://jfeggio.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jfeggio.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jfeggio.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jfeggio.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jfeggio.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -61,7 +60,7 @@ Descriptive Analysis Please refer to the Descriptive Analysis of &ldquo;World Ha
 <meta property="og:description" content="Table of Contents Introduction Descriptive Analysis Outliers Principal Components Analysis Eigenvalues Loadings Correlation between components Components 1 (Quality of Life) and 2 (Economy/Corruption) Components 1 (Quality of Life) and 3 (Social Support/Corruption) Components 2 (Economy/Corruption) and 3 (Social Support/Corruption) Conclusion Introduction Please refer to the Introduction of &ldquo;World Happiness Report - A Cluster Analysis [1/2]&rdquo; as this is the second part of this work.
 Descriptive Analysis Please refer to the Descriptive Analysis of &ldquo;World Happiness Report - A Cluster Analysis [1/2]&rdquo; as this is the second part of this work." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/whr2/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://jfeggio.github.io/posts/whr2/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-22T20:38:41+01:00" />
 <meta property="article:modified_time" content="2022-12-22T20:38:41+01:00" />
 
@@ -75,18 +74,18 @@ Descriptive Analysis Please refer to the Descriptive Analysis of &ldquo;World Ha
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [, 
+  "itemListElement": [
     {
       "@type": "ListItem",
-      "position":  2 ,
+      "position":  1 ,
       "name": "Posts",
-      "item": "/posts/"
+      "item": "https://jfeggio.github.io/posts/"
     }, 
     {
       "@type": "ListItem",
-      "position":  3 ,
+      "position":  2 ,
       "name": "World Happiness Report - A Principal Components Analysis [2/2]",
-      "item": "/posts/whr2/"
+      "item": "https://jfeggio.github.io/posts/whr2/"
     }
   ]
 }
@@ -108,14 +107,14 @@ Descriptive Analysis Please refer to the Descriptive Analysis of &ldquo;World Ha
   "dateModified": "2022-12-22T20:38:41+01:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/posts/whr2/"
+    "@id": "https://jfeggio.github.io/posts/whr2/"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Jessica Feggio",
+    "name": "JFeggio",
     "logo": {
       "@type": "ImageObject",
-      "url": "favicon.ico"
+      "url": "https://jfeggio.github.io/favicon.ico"
     }
   }
 }
@@ -137,7 +136,7 @@ Descriptive Analysis Please refer to the Descriptive Analysis of &ldquo;World Ha
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="" accesskey="h" title="Jessica Feggio (Alt + H)">Jessica Feggio</a>
+            <a href="https://jfeggio.github.io/" accesskey="h" title="JFeggio (Alt + H)">JFeggio</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -163,22 +162,17 @@ Descriptive Analysis Please refer to the Descriptive Analysis of &ldquo;World Ha
         </div>
         <ul id="menu">
             <li>
-                <a href="/aboutme/" title="About me">
-                    <span>About me</span>
-                </a>
-            </li>
-            <li>
-                <a href="/posts/" title="Posts">
+                <a href="https://jfeggio.github.io/posts/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="/categories/" title="Categories">
+                <a href="https://jfeggio.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="/tags/" title="Tags">
+                <a href="https://jfeggio.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -493,13 +487,13 @@ Therefore, three components will be used for the analysis.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="/tags/uni/">uni</a></li>
-      <li><a href="/tags/pca/">pca</a></li>
-      <li><a href="/tags/outliers/">outliers</a></li>
-      <li><a href="/tags/correlation/">correlation</a></li>
-      <li><a href="/tags/eigenvalues/">eigenvalues</a></li>
-      <li><a href="/tags/bartlett/">bartlett</a></li>
-      <li><a href="/tags/principal-components/">principal components</a></li>
+      <li><a href="https://jfeggio.github.io/tags/uni/">uni</a></li>
+      <li><a href="https://jfeggio.github.io/tags/pca/">pca</a></li>
+      <li><a href="https://jfeggio.github.io/tags/outliers/">outliers</a></li>
+      <li><a href="https://jfeggio.github.io/tags/correlation/">correlation</a></li>
+      <li><a href="https://jfeggio.github.io/tags/eigenvalues/">eigenvalues</a></li>
+      <li><a href="https://jfeggio.github.io/tags/bartlett/">bartlett</a></li>
+      <li><a href="https://jfeggio.github.io/tags/principal-components/">principal components</a></li>
     </ul>
   </footer>
 </article>

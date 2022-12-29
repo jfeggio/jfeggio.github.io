@@ -5,21 +5,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>A Descriptive Analysis of Airbnb accomodations in Bologna | Jessica Feggio</title>
+<title>A Descriptive Analysis of Airbnb accomodations in Bologna | JFeggio</title>
 <meta name="keywords" content="r, programming, descriptive analysis, airbnb">
 <meta name="description" content="Language used: R
 Database used: &ldquo;listing.csv&rdquo; from the website http://insideairbnb.com/get-the-data/ composed by a mix of 18 qualitative and quantitative variables and 3896 cases.
 Packages used: dplyr: to obtain a general descriptive analysis of the data. ggplot2: to create graphs ggmap: to be able to show maps RColorBrewer: to assign colors to the heatmap visualization osmdata: to obtain the geographic coordinates of the city of Bologna hrbrthemes: to obtain more ggplot themes Variables description:">
 <meta name="author" content="">
-<link rel="canonical" href="/posts/airbnb/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.77bd02abf7cbb982b32c1a1988e1e9c38a3f25df151a78dfeb21ccdcb462e1cf.css" integrity="sha256-d70Cq/fLuYKzLBoZiOHpw4o/Jd8VGnjf6yHM3LRi4c8=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="mask-icon" href="safari-pinned-tab.svg">
+<link rel="canonical" href="https://jfeggio.github.io/posts/airbnb/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://jfeggio.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jfeggio.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jfeggio.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jfeggio.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jfeggio.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -63,7 +62,7 @@ Packages used: dplyr: to obtain a general descriptive analysis of the data. ggpl
 Database used: &ldquo;listing.csv&rdquo; from the website http://insideairbnb.com/get-the-data/ composed by a mix of 18 qualitative and quantitative variables and 3896 cases.
 Packages used: dplyr: to obtain a general descriptive analysis of the data. ggplot2: to create graphs ggmap: to be able to show maps RColorBrewer: to assign colors to the heatmap visualization osmdata: to obtain the geographic coordinates of the city of Bologna hrbrthemes: to obtain more ggplot themes Variables description:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/airbnb/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://jfeggio.github.io/posts/airbnb/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-22T20:38:41+01:00" />
 <meta property="article:modified_time" content="2022-12-22T20:38:41+01:00" />
 
@@ -78,18 +77,18 @@ Packages used: dplyr: to obtain a general descriptive analysis of the data. ggpl
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [, 
+  "itemListElement": [
     {
       "@type": "ListItem",
-      "position":  2 ,
+      "position":  1 ,
       "name": "Posts",
-      "item": "/posts/"
+      "item": "https://jfeggio.github.io/posts/"
     }, 
     {
       "@type": "ListItem",
-      "position":  3 ,
+      "position":  2 ,
       "name": "A Descriptive Analysis of Airbnb accomodations in Bologna",
-      "item": "/posts/airbnb/"
+      "item": "https://jfeggio.github.io/posts/airbnb/"
     }
   ]
 }
@@ -111,14 +110,14 @@ Packages used: dplyr: to obtain a general descriptive analysis of the data. ggpl
   "dateModified": "2022-12-22T20:38:41+01:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/posts/airbnb/"
+    "@id": "https://jfeggio.github.io/posts/airbnb/"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Jessica Feggio",
+    "name": "JFeggio",
     "logo": {
       "@type": "ImageObject",
-      "url": "favicon.ico"
+      "url": "https://jfeggio.github.io/favicon.ico"
     }
   }
 }
@@ -140,7 +139,7 @@ Packages used: dplyr: to obtain a general descriptive analysis of the data. ggpl
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="" accesskey="h" title="Jessica Feggio (Alt + H)">Jessica Feggio</a>
+            <a href="https://jfeggio.github.io/" accesskey="h" title="JFeggio (Alt + H)">JFeggio</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -166,22 +165,17 @@ Packages used: dplyr: to obtain a general descriptive analysis of the data. ggpl
         </div>
         <ul id="menu">
             <li>
-                <a href="/aboutme/" title="About me">
-                    <span>About me</span>
-                </a>
-            </li>
-            <li>
-                <a href="/posts/" title="Posts">
+                <a href="https://jfeggio.github.io/posts/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="/categories/" title="Categories">
+                <a href="https://jfeggio.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="/tags/" title="Tags">
+                <a href="https://jfeggio.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -382,10 +376,10 @@ Eg. Minimum number of nights set at 365 or price per night set at 15.365 Euros f
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="/tags/r/">r</a></li>
-      <li><a href="/tags/programming/">programming</a></li>
-      <li><a href="/tags/descriptive-analysis/">descriptive analysis</a></li>
-      <li><a href="/tags/airbnb/">airbnb</a></li>
+      <li><a href="https://jfeggio.github.io/tags/r/">r</a></li>
+      <li><a href="https://jfeggio.github.io/tags/programming/">programming</a></li>
+      <li><a href="https://jfeggio.github.io/tags/descriptive-analysis/">descriptive analysis</a></li>
+      <li><a href="https://jfeggio.github.io/tags/airbnb/">airbnb</a></li>
     </ul>
   </footer>
 </article>
