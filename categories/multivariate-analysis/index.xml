@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>multivariate analysis on Jessica Feggio</title>
+    <title>multivariate analysis on JFeggio</title>
     <link>https://jfeggio.github.io/categories/multivariate-analysis/</link>
-    <description>Recent content in multivariate analysis on Jessica Feggio</description>
+    <description>Recent content in multivariate analysis on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 22 Dec 2022 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/categories/multivariate-analysis/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <pubDate>Thu, 22 Dec 2022 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/posts/whr1/</guid>
-      <description>Table of Contents Introduction Descriptive Analysis Outliers Cluster Analysis Number of Clusters Hierarchical Analysis Non-Hierarchical Analysis ANOVA Conclusion (PCA) Introduction Language used: R
+      <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Outliers Cluster Analysis Number of Clusters Hierarchical Analysis Non-Hierarchical Analysis ANOVA Conclusion (PCA) Introduction Language used: R
 Database used: The World Happiness report from 2021 which is a global survey data to report how people evaluate their own lives in more than 150 countries worldwide.
 Packages used: dplyr: to obtain a general descriptive analysis of the data. corrplot: to create correlation matrix readxl: to import the database (.</description>
     </item>
