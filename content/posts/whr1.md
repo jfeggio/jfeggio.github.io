@@ -2,12 +2,13 @@
 title: "World Happiness Report - A Cluster Analysis [1/2]"
 date: 2022-12-22T20:38:41+01:00
 draft: false
-tags: ["uni","clustering", "outliers", "correlation", "hierarchical analysis", "non-hierarchical  analysis", "anova", "principal components"]
+tags: ["uni","clustering", "data wrangling","outliers", "correlation", "hierarchical analysis", "non-hierarchical  analysis", "anova", "principal components"]
 categories: ["uni", "r", "multivariate analysis"]
 ---
 # Table of Contents
 1. [Introduction](#introduction)
-2. [Descriptive Analysis](#descriptive-analysis)
+2. [Data Wrangling](#data-wrangling)
+    - [Descriptive Analysis](#descriptive-analysis)
     - [Outliers](#outliers)
 3. [Cluster Analysis](#cluster-analysis)
     - [Number of Clusters](#number-of-clusters)
@@ -49,6 +50,8 @@ Descriptions taken from: https://happiness-report.s3.amazonaws.com/2021/Appendix
 | **Negative affect**: is given by the average of individual yes or no answers about three emotions experienced on the previous day: worry, sadness, and anger. |  
 | **Confidence in national government**: is given by the average of individual yes or no answers to the question: "Do you have confidence in the national government?"   | 
 
+## Data wrangling 
+
 Regions excluded to be able to carry out the analysis: 
 - Commonwealth of Independent States	
 - East Asia	
@@ -59,7 +62,7 @@ Regions excluded to be able to carry out the analysis:
 
 **Missing data**: as a complete set of data is needed for the analysis, it was decided to fill in missing data with the average of the variable where the data was missing.
 
-## Descriptive Analysis
+### Descriptive Analysis
 
 |	Variable|Min.|	1st Qu.|	Median|Mean	|3rd Qu.|	Max.|
 |----|----|----|----|----|----|----|
@@ -105,11 +108,11 @@ Regions excluded to be able to carry out the analysis:
 
 Outliers affect the correlation, so we want to detect and exclude them.
 
-In order to detect outlier the **Mahalanobis distance** is to be used, for it we need:
+In order to detect outliers the **Mahalanobis distance** is to be used, for it we need:
 - Covariance calculation
 - Average of all quantitative columns of the dataframe
 
-In order to find out the significance level associate to each variable we need to calculate the cumulative chi square density, where it is =<0.10 it could be an outlier.
+To discover the significance level associate to each variable we need to calculate the cumulative chi square density, where it is =<0.10 it could be an outlier.
 
 **Possible outliers**
 
@@ -121,10 +124,10 @@ In order to find out the significance level associate to each variable we need t
 
 Kosovo, Venezuela and Albania are outliers, so they are to be excluded from the data and therefore from the analysis.
 
-## Cluster Analysis
-
 - Standardize the data (*z-score*)
 - Correlation matrix (using the *Pearson test*), where the correlation matrix and the identity matrix are compared.
+
+## Cluster Analysis
 
 ![](/whr1_correlation.png)
 

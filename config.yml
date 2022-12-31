@@ -1,6 +1,6 @@
 baseURL: "https://jfeggio.github.io/"
 languageCode: en-us
-title: JessicaF
+title: JFeggio
 theme: PaperMod
 
 
@@ -11,9 +11,9 @@ params:
     profileMode:
         enabled: true
         title: "Italian || BI & Systems Reporting Specialist at Henkel" # optional default will be site title
-        subtitle: "Studying || M.Sc. Quantitative Methods for Data Analysis in Organizations at the University of Buenos Aires (UBA)"
+        subtitle: "Studying || Quantitative Methods for Data Analysis in Organizations at the University of Buenos Aires (UBA)"
         description: "MBA Turin University"
-        imageUrl: "https://twemoji.maxcdn.com/2/svg/1f36b.svg" # optional
+        imageUrl: "https://raw.githubusercontent.com/jfeggio/jfeggio.github.io/master/profile_pic.png" # optional
         imageTitle: "Foto" # optional
         imageWidth: 120 # custom size
         imageHeight: 120 # custom size   
@@ -24,7 +24,7 @@ params:
           #     url: "https://github.com/" 
     socialIcons:
        - name: linkedin
-         url: 'https://www.linkedin.com/'
+         url: 'https://www.linkedin.com/in/jessica-feggio/'
     hideFooter: true
     hideMeta: true
     label:
@@ -52,19 +52,22 @@ menu:
      - identifier: tags
        name: Tags
        url: /tags/
-       weight: 40
+       weight: 30
      - identifier: categories
        name: Categories
        url: /categories/
-       weight: 30
+       weight: 20
      - identifier: posts
        name: Posts
        url: /posts/
-       weight: 20
-     - identifier: about
-       name: About me
-       url: /aboutme/
        weight: 10
+
+
+
+    #  - identifier: about
+    #    name: About me
+    #    url: /aboutme/
+    #    weight: 10
      
 
 #       ##pre: <link rel="icon" href="/argentina.png">  
