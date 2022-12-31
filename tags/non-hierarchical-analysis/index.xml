@@ -13,7 +13,7 @@
       <pubDate>Thu, 22 Dec 2022 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/posts/whr1/</guid>
-      <description>Table of Contents Introduction Descriptive Analysis Outliers Cluster Analysis Number of Clusters Hierarchical Analysis Non-Hierarchical Analysis ANOVA Conclusion (PCA) Introduction Language used: R
+      <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Outliers Cluster Analysis Number of Clusters Hierarchical Analysis Non-Hierarchical Analysis ANOVA Conclusion (PCA) Introduction Language used: R
 Database used: The World Happiness report from 2021 which is a global survey data to report how people evaluate their own lives in more than 150 countries worldwide.
 Packages used: dplyr: to obtain a general descriptive analysis of the data. corrplot: to create correlation matrix readxl: to import the database (.</description>
     </item>
