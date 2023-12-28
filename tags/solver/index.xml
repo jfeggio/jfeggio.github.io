@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>solver on JFeggio</title>
+    <link>https://jfeggio.github.io/tags/solver/</link>
+    <description>Recent content in solver on JFeggio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Dec 2022 13:40:02 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/solver/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Programming - Investment funds</title>
+      <link>https://jfeggio.github.io/posts/programacionlineal/</link>
+      <pubDate>Thu, 29 Dec 2022 13:40:02 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/programacionlineal/</guid>
+      <description>Table of Contents Introduction Mathematical Model Solution Introduction Language used: Excel (Solver add-on)
+Task to solve:
+Money to be invested: $5.000.000 Investment type Earning to be achieved (per year) Investment limit (milions) Consumer credit 7% 1 Corporative bonds 11% 1.5 Gold deposits 19% 2.5 Housing loans 12% 1.7 Additional Limits:
+Investment type Investment out of all funds Consumer credit Maximum 15% Housing loans &amp;amp; Gold deposits Minimum	5% Mathematical Model Decision Variables:</description>
+    </item>
+    
+  </channel>
+</rss>

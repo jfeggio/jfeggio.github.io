@@ -6,7 +6,42 @@
     <description>Recent content in Posts on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Dec 2022 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit</title>
+      <link>https://jfeggio.github.io/posts/nlp_reddit/</link>
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/nlp_reddit/</guid>
+      <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python
+Goal: Analyse the frequency, the type and the related-topic of English words in the Latin American Spanish-speaking subreddits of the social media platform Reddit for the period 2016-2023. Finally, it will be taken into account the influence of economic relations with United States and the amount of tourists (&amp;gt;1.</description>
+    </item>
+    
+    <item>
+      <title>Linear Programming - Investment funds</title>
+      <link>https://jfeggio.github.io/posts/programacionlineal/</link>
+      <pubDate>Thu, 29 Dec 2022 13:40:02 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/programacionlineal/</guid>
+      <description>Table of Contents Introduction Mathematical Model Solution Introduction Language used: Excel (Solver add-on)
+Task to solve:
+Money to be invested: $5.000.000 Investment type Earning to be achieved (per year) Investment limit (milions) Consumer credit 7% 1 Corporative bonds 11% 1.5 Gold deposits 19% 2.5 Housing loans 12% 1.7 Additional Limits:
+Investment type Investment out of all funds Consumer credit Maximum 15% Housing loans &amp;amp; Gold deposits Minimum	5% Mathematical Model Decision Variables:</description>
+    </item>
+    
+    <item>
+      <title>Markov Chains - Collection Strategy</title>
+      <link>https://jfeggio.github.io/posts/markovchain/</link>
+      <pubDate>Thu, 29 Dec 2022 13:40:02 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/markovchain/</guid>
+      <description>Table of Contents Introduction Mathematical Model Solution Introduction Language used: R (Markov Chains package)
+Task to solve: Analyze the Bad Payers situation.
+Transitional matrix with this components: Group A (good payers)
+30% will stay in this category 30% will become a bad payer (Group B) The rest will pay all overdue Group B (bad payers)
+10% goes to the default stage 20% pays the overdue 40% will stay in Group B 30% will go to Group A D (default): Default</description>
+    </item>
+    
     <item>
       <title>A Descriptive Analysis of Airbnb accomodations in Bologna</title>
       <link>https://jfeggio.github.io/posts/airbnb/</link>

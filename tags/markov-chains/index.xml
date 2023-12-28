@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>markov chains on JFeggio</title>
+    <link>https://jfeggio.github.io/tags/markov-chains/</link>
+    <description>Recent content in markov chains on JFeggio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Dec 2022 13:40:02 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/markov-chains/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markov Chains - Collection Strategy</title>
+      <link>https://jfeggio.github.io/posts/markovchain/</link>
+      <pubDate>Thu, 29 Dec 2022 13:40:02 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/markovchain/</guid>
+      <description>Table of Contents Introduction Mathematical Model Solution Introduction Language used: R (Markov Chains package)
+Task to solve: Analyze the Bad Payers situation.
+Transitional matrix with this components: Group A (good payers)
+30% will stay in this category 30% will become a bad payer (Group B) The rest will pay all overdue Group B (bad payers)
+10% goes to the default stage 20% pays the overdue 40% will stay in Group B 30% will go to Group A D (default): Default</description>
+    </item>
+    
+  </channel>
+</rss>
