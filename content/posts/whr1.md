@@ -3,7 +3,7 @@ title: "World Happiness Report - A Cluster Analysis [1/2]"
 date: 2022-12-22T20:38:41+01:00
 draft: false
 tags: ["uni","clustering", "data wrangling","outliers", "correlation", "hierarchical analysis", "non-hierarchical  analysis", "anova", "principal components"]
-categories: ["uni", "r", "multivariate analysis"]
+categories: ["uni", "r", "multivariate analysis", "unsupervised machine learning"]
 ---
 # Table of Contents
 1. [Introduction](#introduction)
