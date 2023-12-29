@@ -13,10 +13,17 @@
       <pubDate>Thu, 29 Dec 2022 13:40:02 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/posts/markovchain/</guid>
+<<<<<<< HEAD
       <description>Table of Contents Introduction Mathematical Model Solution Introduction Language used: R (Markov Chains package)
 Task to solve: Analyze the Bad Payers situation.
 Transitional matrix with this components: Group A (good payers)
 30% will stay in this category 30% will become a bad payer (Group B) The rest will pay all overdue Group B (bad payers)
+=======
+      <description>Table of Contents Introduction Mathematical Model Solution Introduction Language used: R (Markov Chains package)
+Task to solve: Analyze the Bad Payers situation.
+Transitional matrix with this components: Group A (good payers)
+30% will stay in this category 30% will become a bad payer (Group B) The rest will pay all overdue Group B (bad payers)
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
 10% goes to the default stage 20% pays the overdue 40% will stay in Group B 30% will go to Group A D (default): Default</description>
     </item>
     

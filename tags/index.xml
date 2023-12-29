@@ -6,11 +6,19 @@
     <description>Recent content in Tags on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+<<<<<<< HEAD
     <lastBuildDate>Fri, 22 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>api</title>
       <link>https://jfeggio.github.io/tags/api/</link>
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+=======
+    <lastBuildDate>Thu, 21 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>api</title>
+      <link>https://jfeggio.github.io/tags/api/</link>
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
       
       <guid>https://jfeggio.github.io/tags/api/</guid>
       <description></description>
@@ -19,7 +27,11 @@
     <item>
       <title>data wrangling</title>
       <link>https://jfeggio.github.io/tags/data-wrangling/</link>
+<<<<<<< HEAD
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+=======
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
       
       <guid>https://jfeggio.github.io/tags/data-wrangling/</guid>
       <description></description>
@@ -28,7 +40,11 @@
     <item>
       <title>kmeans</title>
       <link>https://jfeggio.github.io/tags/kmeans/</link>
+<<<<<<< HEAD
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+=======
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
       
       <guid>https://jfeggio.github.io/tags/kmeans/</guid>
       <description></description>
@@ -37,7 +53,11 @@
     <item>
       <title>natural language processing</title>
       <link>https://jfeggio.github.io/tags/natural-language-processing/</link>
+<<<<<<< HEAD
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+=======
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
       
       <guid>https://jfeggio.github.io/tags/natural-language-processing/</guid>
       <description></description>
@@ -46,7 +66,11 @@
     <item>
       <title>nlp</title>
       <link>https://jfeggio.github.io/tags/nlp/</link>
+<<<<<<< HEAD
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+=======
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
       
       <guid>https://jfeggio.github.io/tags/nlp/</guid>
       <description></description>
@@ -55,7 +79,11 @@
     <item>
       <title>nltk</title>
       <link>https://jfeggio.github.io/tags/nltk/</link>
+<<<<<<< HEAD
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+=======
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
       
       <guid>https://jfeggio.github.io/tags/nltk/</guid>
       <description></description>
@@ -64,25 +92,50 @@
     <item>
       <title>reddit</title>
       <link>https://jfeggio.github.io/tags/reddit/</link>
+<<<<<<< HEAD
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+=======
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
       
       <guid>https://jfeggio.github.io/tags/reddit/</guid>
       <description></description>
     </item>
     
     <item>
+<<<<<<< HEAD
       <title>spacy</title>
       <link>https://jfeggio.github.io/tags/spacy/</link>
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+=======
+      <title>social media</title>
+      <link>https://jfeggio.github.io/tags/social-media/</link>
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/social-media/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spacy</title>
+      <link>https://jfeggio.github.io/tags/spacy/</link>
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
       
       <guid>https://jfeggio.github.io/tags/spacy/</guid>
       <description></description>
     </item>
     
     <item>
+<<<<<<< HEAD
       <title>text-mining</title>
       <link>https://jfeggio.github.io/tags/text-mining/</link>
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+=======
+      <title>text mining</title>
+      <link>https://jfeggio.github.io/tags/text-mining/</link>
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
       
       <guid>https://jfeggio.github.io/tags/text-mining/</guid>
       <description></description>
@@ -91,7 +144,11 @@
     <item>
       <title>topic modelling</title>
       <link>https://jfeggio.github.io/tags/topic-modelling/</link>
+<<<<<<< HEAD
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+=======
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
       
       <guid>https://jfeggio.github.io/tags/topic-modelling/</guid>
       <description></description>
@@ -100,7 +157,11 @@
     <item>
       <title>uni</title>
       <link>https://jfeggio.github.io/tags/uni/</link>
+<<<<<<< HEAD
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+=======
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
       
       <guid>https://jfeggio.github.io/tags/uni/</guid>
       <description></description>

@@ -13,9 +13,15 @@
       <pubDate>Thu, 29 Dec 2022 13:40:02 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/posts/programacionlineal/</guid>
+<<<<<<< HEAD
       <description>Table of Contents Introduction Mathematical Model Solution Introduction Language used: Excel (Solver add-on)
 Task to solve:
 Money to be invested: $5.000.000 Investment type Earning to be achieved (per year) Investment limit (milions) Consumer credit 7% 1 Corporative bonds 11% 1.5 Gold deposits 19% 2.5 Housing loans 12% 1.7 Additional Limits:
+=======
+      <description>Table of Contents Introduction Mathematical Model Solution Introduction Language used: Excel (Solver add-on)
+Task to solve:
+Money to be invested: $5.000.000 Investment type Earning to be achieved (per year) Investment limit (milions) Consumer credit 7% 1 Corporative bonds 11% 1.5 Gold deposits 19% 2.5 Housing loans 12% 1.7 Additional Limits:
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
 Investment type Investment out of all funds Consumer credit Maximum 15% Housing loans &amp;amp; Gold deposits Minimum	5% Mathematical Model Decision Variables:</description>
     </item>
     

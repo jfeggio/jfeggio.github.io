@@ -6,6 +6,7 @@
     <description>Recent content in topic modelling on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+<<<<<<< HEAD
     <lastBuildDate>Fri, 22 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/topic-modelling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit </title>
@@ -14,6 +15,16 @@
       
       <guid>https://jfeggio.github.io/posts/nlpreddit/</guid>
       <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python
+=======
+    <lastBuildDate>Thu, 21 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/topic-modelling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit</title>
+      <link>https://jfeggio.github.io/posts/nlp_reddit/</link>
+      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/nlp_reddit/</guid>
+      <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python
+>>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
 Goal: Analyse the frequency, the type and the related-topic of English words in the Latin American Spanish-speaking subreddits of the social media platform Reddit for the period 2016-2023. Finally, it will be taken into account the influence of economic relations with United States and the amount of tourists (&amp;gt;1.</description>
     </item>
     

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit | JFeggio</title>
+<meta name="keywords" content="uni, natural language processing, data wrangling, nlp, spacy, nltk, topic modelling, text mining, social media, kmeans, api, reddit">
+<meta name="description" content="Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python
+Goal: Analyse the frequency, the type and the related-topic of English words in the Latin American Spanish-speaking subreddits of the social media platform Reddit for the period 2016-2023. Finally, it will be taken into account the influence of economic relations with United States and the amount of tourists (&gt;1.">
+<meta name="author" content="">
+<link rel="canonical" href="https://jfeggio.github.io/posts/nlp_reddit/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://jfeggio.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jfeggio.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jfeggio.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jfeggio.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jfeggio.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit" />
+<meta property="og:description" content="Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python
+Goal: Analyse the frequency, the type and the related-topic of English words in the Latin American Spanish-speaking subreddits of the social media platform Reddit for the period 2016-2023. Finally, it will be taken into account the influence of economic relations with United States and the amount of tourists (&gt;1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jfeggio.github.io/posts/nlp_reddit/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-21T20:38:41+01:00" />
+<meta property="article:modified_time" content="2023-12-21T20:38:41+01:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit"/>
+<meta name="twitter:description" content="Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python
+Goal: Analyse the frequency, the type and the related-topic of English words in the Latin American Spanish-speaking subreddits of the social media platform Reddit for the period 2016-2023. Finally, it will be taken into account the influence of economic relations with United States and the amount of tourists (&gt;1."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://jfeggio.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit",
+      "item": "https://jfeggio.github.io/posts/nlp_reddit/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit",
+  "name": "Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit",
+  "description": "Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python\nGoal: Analyse the frequency, the type and the related-topic of English words in the Latin American Spanish-speaking subreddits of the social media platform Reddit for the period 2016-2023. Finally, it will be taken into account the influence of economic relations with United States and the amount of tourists (\u0026gt;1.",
+  "keywords": [
+    "uni", "natural language processing", "data wrangling", "nlp", "spacy", "nltk", "topic modelling", "text mining", "social media", "kmeans", "api", "reddit"
+  ],
+  "articleBody": "Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python\nGoal: Analyse the frequency, the type and the related-topic of English words in the Latin American Spanish-speaking subreddits of the social media platform Reddit for the period 2016-2023. Finally, it will be taken into account the influence of economic relations with United States and the amount of tourists (\u003e1.000.000) from this country to see if either, both or none have an impact.\nData Source: Spanish-speaking Latin American subreddits (communities in a forum) of the social media platform Reddit (https://www.reddit.com/).\nLibraries used\nLibrary Description pandas: data manipulation and analysis to work with structured data numpy: for numerical operations to work on large and multi-dimensional arrays and matrices requests: to make HTTPS requests to access web APIs and fetch data from the internet praw: wrapper to interact with Reddit API nltk: Natural Language Toolkit, it includes programs used for text processing and analysis including tokenization, stemming and stopwords removal spacy: used for different NLP tasks, such as tokenization, part-of-speech tagging and named entity recognition matplotlib.pyplot: plotting library to create visualizations. seaborn: statistical data visualization tool for informative statistical graphics. scikit-learn: machine learning library, used in this project for clustering. gensim: used for topic modelling and document similarity analysis. Subreddits analysed by country:\nCountry Subreddit Argentina: republica_argentina; alianzaargentina; buenosaires; argentina; cordoba; bahiablanca; bariloche; chubut; corrientes; lapampa; mendoza; rosario; salta; tucuman; neuquen Bolivia: bolivia Chile: republicadechile; chile; santiago; yo_ctm; noeslalegal; anormaldayinchile; chilefit; clubdelecturachile; chileambiental; chileorganico Colombia: colombia; bogota; medellin; barranquilla; cali; bucaramanga; manizales; pereira; santamarta Costa Rica: ticos Cuba: cuba Ecuador: ecuador El Salvador: el salvador Guatemala: guatemala Honduras: honduras México: mexico; monterrey; guadalajara; mexicocity; tijuana; puebla; videojuegosmx; memexico; mexicofinanciero; derechomexicano; somosmexico. Panamá: panama Paraguay: paraguay Perú: peru; cusco; machupicchu; arequipa; cumbiaperuana; pokemongoperu Puerto Rico: puerto rico República Dominicana: dominicanos Uruguay: uruguay; uruguay marketplace; burises; uruguay libre; uruguay crypto; uruguay circle jerk; uruguay verde; charruadevs Venezuela: venezuela; vzla Data wrangling The data fetched is related to the title, the body of posts and the comments left by users and will be saved in a dataframe. Before starting with the data wrangling, all dataframes are being consolidated into one as to have:\nA column “text” where all the text will be stored, regardless of its type; A column “Created On” as to know when the specific text was created; A column “year” where the creation year is extracted; A column “df_name” with the name of the original dataframe (from which country subreddit the text is from). In the text processing pipeline all words are converted to lowercase, and commas are removed. Additionally, special characters, such as “é, á, í,” etc., are transformed into their unaccented forms, with the exception of the character ‘ñ,’ which is retained in its original form. This preprocessing step standardizes the text and ensures uniformity in word representations.\nFollowing this, common language stopwords are eliminated from the text. Stopwords, being frequently used words that typically do not contribute significant meaning to the text, are filtered out to focus on the more substantive content of the text.\nThe text is then converted into tokens. A new column, only containing English tokens, is introduced into the dataframe. This step is crucial as it aligns with the primary focus of the project, which centers on analyzing and extracting insights from the English words present in the retrieved data.\nDescriptive Analysis Top 10 most used English words used regardless of country and year\nMost frequent terms: people, like; words related to social media and the interaction among users.\nMost frequent English words by subreddit\nMost frequent terms: post (Argentina), thread (Honduras). Terms related to the digital world (thread, twitter, post, edit, sub, like, format) and society (government, people, city).\nCountry English word Frequency Total Argentina: post 145 12206 Bolivia: edit 17 1171 Chile: formato 116 6576 Colombia: government 74 4996 Costa Rica: government 16 1151 Cuba: twitter 34 1051 Dominican Republic: government 22 1245 El Salvador: city 21 1322 Ecuador: boric 20 1110 Guatemala: sub 28 1126 Honduras: thread 141 1107 México: would 99 13811 Nicaragua: good 13 1214 Panamá: like 22 1469 Paraguay: people 18 1236 Perú: like 21 1824 Puerto Rico: get 17 1076 Uruguay: like 70 4956 Venezuela: would 38 2232 English words most used by subreddit by taking a random selection on 1000 tokens each According to this analysis, the Nicaraguan subreddit has the highest number of anglicisms (865 out of 1,000), followed by the Cuba subreddit (658 out of 1,000) and El Salvador (635 out of 1,000). The Paraguay subreddit has the lowest number of anglicisms (336 out of 1,000). It’s noteworthy that there is a substantial difference between the first two positions, whereas in the other cases, the difference is much smaller.\nFrequency of English words by year (2016-2023) English words most used by subreddit and year by taking a random selection on 1000 tokens each Over the years, Nicaragua consistently stands out as the subreddit with the highest number of anglicisms, particularly in the year 2018, distinguishing itself from the others. In the years 2020-2021, the Cuban subreddit takes the lead, with the Venezuelan subreddit standing out in 2020, and the Dominican Republic subreddit in 2023.\nNamed-entity recognition (NER) and Topic Modelling NER The analysis highlights that the most frequently used typology is of the date type, with 1904 cases, followed by the categories of cardinal numbers (1150) and persons (1097).\nTopic Modelling Topic 0 is related to Politics and Leadership, containing primarily the words: would (conditional of the verb “to be”), president, get, know, people, like, time, us, country.\nTopic 1 is related to Current Events and International Affairs, containing primarily the words: Russia, Covid, width, preview, day, format, next, even, area, government.\nTopic 2 is related to Technology and Media, containing primarily the words: RAM (random-access memory), video, edit, world, extra, opinion, war, super, watch, post.\nTopic 3 is related to Social Media and Personal Life, containing primarily the words: sub (short for subreddit), status, Twitter, see, live, food, due, place, also, family.\nCluster Analysis In the context of the growing global interconnection, it is important to examine in detail the influence that the United States exerts on different countries, both from a commercial and tourist perspective. The main objective of this study is to conduct a comprehensive assessment of such influence, using data from official and reliable sources. For this purpose, two key sources have been employed: the official website of the United States Trade Representative (USTR) and data provided by the World Tourism Organization (UNWTO).\nFor this study, an approach based on the ordinal classification available in the country profiles of the USTR has been adopted. This classification, which ranks countries according to the total volume of products traded with the United States, provides a structured view of the trade relationship between the United States and each respective country.\nRegarding tourist influence, the analysis relies on data compiled by the UNWTO, a globally recognized entity for its comprehensive tourism statistics. Specifically, a threshold of one million American tourists has been established as a criterion to identify the most relevant tourist destinations. Countries surpassing this threshold are labeled with the number 1, while others receive the category number 2.\nCountry Tourism Commerce Argentina 2 33 Bolivia 2 96 Chile 2 20 Colombia 2 22 Costa Rica 1 38 Cuba 2 127 Domincan Republic 1 30 Ecuador 2 42 El Salvador 2 50 Guatemala 2 36 Honduras 2 44 Nicaragua 2 67 México 1 2 Paraguay 2 109 Perú 2 29 Panamá 2 35 Puerto Rico 1 0 Uruguay 2 91 Venezuela 2 72 Number of clusters : Silhouette method and Elbow method recommend 3 clusters.\nK-Means Cluster 0: Costa Rica, Dominican Republic, Mexico, Puerto Rico. This group includes countries that receive more than 1 million tourists from the United States per year (value 1 in the “Tourism” column). Regarding trade, not all countries in this group are considered significant trading partners, as some have a value equal to or less than 30 in the “Commerce” column.\nCluster 1: El Salvador, Honduras, Ecuador, Guatemala, Panama, Argentina, Peru, Colombia, Chile. This cluster comprises countries that also receive few tourists from the United States but are considered significant trading partners due to significant values in the “Commerce” column.\nCluster 2: Cuba, Paraguay, Bolivia, Uruguay, Venezuela, Nicaragua. Here are countries that receive a low number of tourists from the United States. Regarding trade, there are few significant trading partners for the United States in this group.\nInfluence of US by year Starting from the year 2020, the subreddits of countries belonging to cluster 1 show a significant increase in the frequency of anglicisms compared to those of other countries. During the years 2018 and 2019, countries in cluster 2 took the lead in terms of anglicism frequency. Based on these findings, it can be concluded that the quantity of anglicisms is influenced by trade relationships with the United States.\n",
+  "wordCount" : "1506",
+  "inLanguage": "en",
+  "datePublished": "2023-12-21T20:38:41+01:00",
+  "dateModified": "2023-12-21T20:38:41+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jfeggio.github.io/posts/nlp_reddit/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JFeggio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jfeggio.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jfeggio.github.io/" accesskey="h" title="JFeggio (Alt + H)">JFeggio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jfeggio.github.io/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jfeggio.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jfeggio.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit
+    </h1>
+  </header> 
+  <div class="post-content"><h1 id="table-of-contents">Table of Contents<a hidden class="anchor" aria-hidden="true" href="#table-of-contents">#</a></h1>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#data-wrangling">Data Wrangling</a>
+<ul>
+<li><a href="#descriptive-analysis">Descriptive Analysis</a></li>
+<li><a href="#frequency">Frequency of English words by year (2016-2023)</a></li>
+</ul>
+</li>
+<li><a href="#ner-topic">Named-entity recognition (NER) and Topic Modelling</a>
+<ul>
+<li><a href="#ner">NER</a></li>
+<li><a href="#topic-modelling">Topic Modelling</a></li>
+</ul>
+</li>
+<li><a href="#cluster-analysis">Cluster Analysis</a>
+<ul>
+<li><a href="#kmeans">K-Means</a></li>
+<li><a href="#us-influence">Influence of US by year</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p><strong>Language used</strong>: Python</p>
+<p><strong>Goal</strong>: Analyse the frequency, the type and the related-topic of English words in the Latin American Spanish-speaking subreddits of the social media platform Reddit for the period 2016-2023. Finally, it will be taken into account the influence of economic relations with United States and the amount of tourists (&gt;1.000.000) from this country to see if either, both or none have an impact.</p>
+<p><strong>Data Source</strong>: Spanish-speaking Latin American  <em>subreddits</em> (communities in a forum) of the social media platform Reddit (<a href="https://www.reddit.com/)">https://www.reddit.com/)</a>.</p>
+<p><strong>Libraries used</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Library</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pandas</strong>:</td>
+<td>data manipulation and analysis to work with structured data</td>
+</tr>
+<tr>
+<td><strong>numpy</strong>:</td>
+<td>for numerical operations to work on large and multi-dimensional arrays and matrices</td>
+</tr>
+<tr>
+<td><strong>requests</strong>:</td>
+<td>to make HTTPS requests to access web APIs and fetch data from the internet</td>
+</tr>
+<tr>
+<td><strong>praw</strong>:</td>
+<td>wrapper to interact with Reddit API</td>
+</tr>
+<tr>
+<td><strong>nltk</strong>:</td>
+<td>Natural Language Toolkit, it includes programs used for text processing and analysis including tokenization, stemming and stopwords removal</td>
+</tr>
+<tr>
+<td><strong>spacy</strong>:</td>
+<td>used for different NLP tasks, such as tokenization, part-of-speech tagging and named entity recognition</td>
+</tr>
+<tr>
+<td><strong>matplotlib.pyplot</strong>:</td>
+<td>plotting library to create visualizations.</td>
+</tr>
+<tr>
+<td><strong>seaborn</strong>:</td>
+<td>statistical data visualization tool for informative statistical graphics.</td>
+</tr>
+<tr>
+<td><strong>scikit-learn</strong>:</td>
+<td>machine learning library,  used in this project for clustering.</td>
+</tr>
+<tr>
+<td><strong>gensim</strong>:</td>
+<td>used for topic modelling and document similarity analysis.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Subreddits analysed by country:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Country</strong></th>
+<th><strong>Subreddit</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Argentina</strong>:</td>
+<td>republica_argentina; alianzaargentina; buenosaires; argentina; cordoba;  bahiablanca; bariloche; chubut; corrientes; lapampa; mendoza; rosario; salta; tucuman; neuquen</td>
+</tr>
+<tr>
+<td><strong>Bolivia</strong>:</td>
+<td>bolivia</td>
+</tr>
+<tr>
+<td><strong>Chile</strong>:</td>
+<td>republicadechile; chile; santiago; yo_ctm; noeslalegal; anormaldayinchile;  chilefit;  clubdelecturachile; chileambiental; chileorganico</td>
+</tr>
+<tr>
+<td><strong>Colombia</strong>:</td>
+<td>colombia; bogota; medellin; barranquilla; cali; bucaramanga; manizales; pereira;  santamarta</td>
+</tr>
+<tr>
+<td><strong>Costa Rica</strong>:</td>
+<td>ticos</td>
+</tr>
+<tr>
+<td><strong>Cuba</strong>:</td>
+<td>cuba</td>
+</tr>
+<tr>
+<td><strong>Ecuador</strong>:</td>
+<td>ecuador</td>
+</tr>
+<tr>
+<td><strong>El Salvador</strong>:</td>
+<td>el salvador</td>
+</tr>
+<tr>
+<td><strong>Guatemala</strong>:</td>
+<td>guatemala</td>
+</tr>
+<tr>
+<td><strong>Honduras</strong>:</td>
+<td>honduras</td>
+</tr>
+<tr>
+<td><strong>México</strong>:</td>
+<td>mexico; monterrey; guadalajara; mexicocity; tijuana; puebla; videojuegosmx; memexico; mexicofinanciero; derechomexicano; somosmexico.</td>
+</tr>
+<tr>
+<td><strong>Panamá</strong>:</td>
+<td>panama</td>
+</tr>
+<tr>
+<td><strong>Paraguay</strong>:</td>
+<td>paraguay</td>
+</tr>
+<tr>
+<td><strong>Perú</strong>:</td>
+<td>peru; cusco; machupicchu; arequipa; cumbiaperuana; pokemongoperu</td>
+</tr>
+<tr>
+<td><strong>Puerto Rico</strong>:</td>
+<td>puerto rico</td>
+</tr>
+<tr>
+<td><strong>República Dominicana</strong>:</td>
+<td>dominicanos</td>
+</tr>
+<tr>
+<td><strong>Uruguay</strong>:</td>
+<td>uruguay; uruguay marketplace; burises; uruguay libre; uruguay crypto; uruguay circle jerk; uruguay verde; charruadevs</td>
+</tr>
+<tr>
+<td><strong>Venezuela</strong>:</td>
+<td>venezuela; vzla</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-wrangling">Data wrangling<a hidden class="anchor" aria-hidden="true" href="#data-wrangling">#</a></h2>
+<p>The data fetched is related to the title, the body of posts and the comments left by users and will be saved in a dataframe.
+Before starting with the data wrangling, all dataframes are being consolidated into one as to have:</p>
+<ul>
+<li>A column &ldquo;text&rdquo; where all the text will be stored, regardless of its type;</li>
+<li>A column &ldquo;Created On&rdquo; as to know when the specific text was created;</li>
+<li>A column &ldquo;year&rdquo; where the creation year is extracted;</li>
+<li>A column &ldquo;df_name&rdquo; with the name of the original dataframe (from which country subreddit the text is from).</li>
+</ul>
+<p><img loading="lazy" src="/nlt_reddit_table_og.png" alt="table"  />
+</p>
+<p>In the text processing pipeline all words are converted to lowercase, and commas are removed. Additionally, special characters, such as &ldquo;é, á, í,&rdquo; etc., are transformed into their unaccented forms, with the exception of the character &lsquo;ñ,&rsquo; which is retained in its original form. This preprocessing step standardizes the text and ensures uniformity in word representations.</p>
+<p>Following this, common language stopwords are  eliminated from the text. Stopwords, being frequently used words that typically do not contribute significant meaning to the text, are filtered out to focus on the more substantive content of the text.</p>
+<p>The text is then converted into tokens. A new column, only containing English tokens, is introduced into the dataframe. This step is crucial as it aligns with the primary focus of the project, which centers on analyzing and extracting insights from the English words present in the retrieved data.</p>
+<h3 id="descriptive-analysis">Descriptive Analysis<a hidden class="anchor" aria-hidden="true" href="#descriptive-analysis">#</a></h3>
+<p><strong>Top 10 most used English words used regardless of country and year</strong></p>
+<p><img loading="lazy" src="/nlp_reddit_graph_tot.png" alt="graph"  />
+</p>
+<p><em>Most frequent terms</em>: people, like; words related to social media and the interaction among users.</p>
+<p><strong>Most frequent English words by subreddit</strong></p>
+<p><img loading="lazy" src="/nlp_reddit_graph_pais.png" alt="graph_2"  />
+</p>
+<p><em>Most frequent terms</em>: post (Argentina), thread (Honduras). Terms related to the digital world (thread, twitter, post, edit, sub, like, format) and society (government, people, city).</p>
+<table>
+<thead>
+<tr>
+<th><strong>Country</strong></th>
+<th><strong>English word</strong></th>
+<th><strong>Frequency</strong></th>
+<th><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Argentina</strong>:</td>
+<td>post</td>
+<td>145</td>
+<td>12206</td>
+</tr>
+<tr>
+<td><strong>Bolivia</strong>:</td>
+<td>edit</td>
+<td>17</td>
+<td>1171</td>
+</tr>
+<tr>
+<td><strong>Chile</strong>:</td>
+<td>formato</td>
+<td>116</td>
+<td>6576</td>
+</tr>
+<tr>
+<td><strong>Colombia</strong>:</td>
+<td>government</td>
+<td>74</td>
+<td>4996</td>
+</tr>
+<tr>
+<td><strong>Costa Rica</strong>:</td>
+<td>government</td>
+<td>16</td>
+<td>1151</td>
+</tr>
+<tr>
+<td><strong>Cuba</strong>:</td>
+<td>twitter</td>
+<td>34</td>
+<td>1051</td>
+</tr>
+<tr>
+<td><strong>Dominican Republic</strong>:</td>
+<td>government</td>
+<td>22</td>
+<td>1245</td>
+</tr>
+<tr>
+<td><strong>El Salvador</strong>:</td>
+<td>city</td>
+<td>21</td>
+<td>1322</td>
+</tr>
+<tr>
+<td><strong>Ecuador</strong>:</td>
+<td>boric</td>
+<td>20</td>
+<td>1110</td>
+</tr>
+<tr>
+<td><strong>Guatemala</strong>:</td>
+<td>sub</td>
+<td>28</td>
+<td>1126</td>
+</tr>
+<tr>
+<td><strong>Honduras</strong>:</td>
+<td>thread</td>
+<td>141</td>
+<td>1107</td>
+</tr>
+<tr>
+<td><strong>México</strong>:</td>
+<td>would</td>
+<td>99</td>
+<td>13811</td>
+</tr>
+<tr>
+<td><strong>Nicaragua</strong>:</td>
+<td>good</td>
+<td>13</td>
+<td>1214</td>
+</tr>
+<tr>
+<td><strong>Panamá</strong>:</td>
+<td>like</td>
+<td>22</td>
+<td>1469</td>
+</tr>
+<tr>
+<td><strong>Paraguay</strong>:</td>
+<td>people</td>
+<td>18</td>
+<td>1236</td>
+</tr>
+<tr>
+<td><strong>Perú</strong>:</td>
+<td>like</td>
+<td>21</td>
+<td>1824</td>
+</tr>
+<tr>
+<td><strong>Puerto Rico</strong>:</td>
+<td>get</td>
+<td>17</td>
+<td>1076</td>
+</tr>
+<tr>
+<td><strong>Uruguay</strong>:</td>
+<td>like</td>
+<td>70</td>
+<td>4956</td>
+</tr>
+<tr>
+<td><strong>Venezuela</strong>:</td>
+<td>would</td>
+<td>38</td>
+<td>2232</td>
+</tr>
+</tbody>
+</table>
+<p><strong>English words most used by subreddit</strong> <em>by taking a random selection on 1000 tokens each</em>
+<img loading="lazy" src="/nlp_reddit_graph_year_p.png" alt="graph_3"  />
+</p>
+<p>According to this analysis, the Nicaraguan subreddit has the highest number of anglicisms (865 out of 1,000), followed by the Cuba subreddit (658 out of 1,000) and El Salvador (635 out of 1,000). The Paraguay subreddit has the lowest number of anglicisms (336 out of 1,000). It&rsquo;s noteworthy that there is a substantial difference between the first two positions, whereas in the other cases, the difference is much smaller.</p>
+<h3 id="frequency-of-english-words-by-year-2016-2023">Frequency of English words by year (2016-2023)<a hidden class="anchor" aria-hidden="true" href="#frequency-of-english-words-by-year-2016-2023">#</a></h3>
+<p><img loading="lazy" src="/nlp_reddit_graph_years.png" alt="graph_4"  />
+</p>
+<p><strong>English words most used by subreddit and year</strong> <em>by taking a random selection on 1000 tokens each</em>
+<img loading="lazy" src="/nlp_reddit_graph_pais_year_tot.png" alt="graph_5"  />
+</p>
+<p>Over the years, Nicaragua consistently stands out as the subreddit with the highest number of anglicisms, particularly in the year 2018, distinguishing itself from the others. In the years 2020-2021, the Cuban subreddit takes the lead, with the Venezuelan subreddit standing out in 2020, and the Dominican Republic subreddit in 2023.</p>
+<h2 id="named-entity-recognition-ner-and-topic-modelling">Named-entity recognition (NER) and Topic Modelling<a hidden class="anchor" aria-hidden="true" href="#named-entity-recognition-ner-and-topic-modelling">#</a></h2>
+<h3 id="ner">NER<a hidden class="anchor" aria-hidden="true" href="#ner">#</a></h3>
+<p><img loading="lazy" src="/nlp_reddit_graph_ner.png" alt="graph_6"  />
+</p>
+<p>The analysis highlights that the most frequently used typology is of the date type, with 1904 cases, followed by the categories of cardinal numbers (1150) and persons (1097).</p>
+<h3 id="topic-modelling">Topic Modelling<a hidden class="anchor" aria-hidden="true" href="#topic-modelling">#</a></h3>
+<p><img loading="lazy" src="/nlp_reddit_topic_modelling.png" alt="graph_7"  />
+</p>
+<ul>
+<li>
+<p><strong>Topic 0</strong> is related to Politics and Leadership, containing primarily the words: would (conditional of the verb &ldquo;to be&rdquo;), president, get, know, people, like, time, us, country.</p>
+</li>
+<li>
+<p><strong>Topic 1</strong> is related to Current Events and International Affairs, containing primarily the words: Russia, Covid, width, preview, day, format, next, even, area, government.</p>
+</li>
+<li>
+<p><strong>Topic 2</strong> is related to Technology and Media, containing primarily the words: RAM (random-access memory), video, edit, world, extra, opinion, war, super, watch, post.</p>
+</li>
+<li>
+<p><strong>Topic 3</strong> is related to Social Media and Personal Life, containing primarily the words: sub (short for subreddit), status, Twitter, see, live, food, due, place, also, family.</p>
+</li>
+</ul>
+<h2 id="cluster-analysis">Cluster Analysis<a hidden class="anchor" aria-hidden="true" href="#cluster-analysis">#</a></h2>
+<p>In the context of the growing global interconnection, it is important to examine in detail the influence that the United States exerts on different countries, both from a commercial and tourist perspective. The main objective of this study is to conduct a comprehensive assessment of such influence, using data from official and reliable sources. For this purpose, two key sources have been employed: the official website of the United States Trade Representative (USTR) and data provided by the World Tourism Organization (UNWTO).</p>
+<p>For this study, an approach based on the ordinal classification available in the country profiles of the USTR has been adopted. This classification, which ranks countries according to the total volume of products traded with the United States, provides a structured view of the trade relationship between the United States and each respective country.</p>
+<p>Regarding tourist influence, the analysis relies on data compiled by the UNWTO, a globally recognized entity for its comprehensive tourism statistics. Specifically, a threshold of one million American tourists has been established as a criterion to identify the most relevant tourist destinations. Countries surpassing this threshold are labeled with the number 1, while others receive the category number 2.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Country</strong></th>
+<th><strong>Tourism</strong></th>
+<th><strong>Commerce</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Argentina</td>
+<td>2</td>
+<td>33</td>
+</tr>
+<tr>
+<td>Bolivia</td>
+<td>2</td>
+<td>96</td>
+</tr>
+<tr>
+<td>Chile</td>
+<td>2</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Colombia</td>
+<td>2</td>
+<td>22</td>
+</tr>
+<tr>
+<td>Costa Rica</td>
+<td>1</td>
+<td>38</td>
+</tr>
+<tr>
+<td>Cuba</td>
+<td>2</td>
+<td>127</td>
+</tr>
+<tr>
+<td>Domincan Republic</td>
+<td>1</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Ecuador</td>
+<td>2</td>
+<td>42</td>
+</tr>
+<tr>
+<td>El Salvador</td>
+<td>2</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Guatemala</td>
+<td>2</td>
+<td>36</td>
+</tr>
+<tr>
+<td>Honduras</td>
+<td>2</td>
+<td>44</td>
+</tr>
+<tr>
+<td>Nicaragua</td>
+<td>2</td>
+<td>67</td>
+</tr>
+<tr>
+<td>México</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Paraguay</td>
+<td>2</td>
+<td>109</td>
+</tr>
+<tr>
+<td>Perú</td>
+<td>2</td>
+<td>29</td>
+</tr>
+<tr>
+<td>Panamá</td>
+<td>2</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Puerto Rico</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Uruguay</td>
+<td>2</td>
+<td>91</td>
+</tr>
+<tr>
+<td>Venezuela</td>
+<td>2</td>
+<td>72</td>
+</tr>
+</tbody>
+</table>
+<p><img loading="lazy" src="/nlp_reddit_graph_elbow.png" alt="graph_8"  />
+
+<img loading="lazy" src="/nlp_reddit_graph_silhouette.png" alt="graph_9"  />
+</p>
+<p><strong>Number of clusters</strong> : Silhouette method and Elbow method recommend 3 clusters.</p>
+<h3 id="k-means">K-Means<a hidden class="anchor" aria-hidden="true" href="#k-means">#</a></h3>
+<p><img loading="lazy" src="/nlp_reddit_graph_cluster.png" alt="graph_10"  />
+</p>
+<ul>
+<li><strong>Cluster 0:</strong> Costa Rica, Dominican Republic, Mexico, Puerto Rico.</li>
+</ul>
+<p>This group includes countries that receive more than 1 million tourists from the United States per year (value 1 in the &ldquo;Tourism&rdquo; column). Regarding trade, not all countries in this group are considered significant trading partners, as some have a value equal to or less than 30 in the &ldquo;Commerce&rdquo; column.</p>
+<ul>
+<li><strong>Cluster 1:</strong> El Salvador, Honduras, Ecuador, Guatemala, Panama, Argentina, Peru, Colombia, Chile.</li>
+</ul>
+<p>This cluster comprises countries that also receive few tourists from the United States but are considered significant trading partners due to significant values in the &ldquo;Commerce&rdquo; column.</p>
+<ul>
+<li><strong>Cluster 2:</strong> Cuba, Paraguay, Bolivia, Uruguay, Venezuela, Nicaragua.</li>
+</ul>
+<p>Here are countries that receive a low number of tourists from the United States. Regarding trade, there are few significant trading partners for the United States in this group.</p>
+<h3 id="influence-of-us-by-year">Influence of US by year<a hidden class="anchor" aria-hidden="true" href="#influence-of-us-by-year">#</a></h3>
+<p><img loading="lazy" src="/nlp_reddit_graph_cluster_year.png" alt="graph_11"  />
+</p>
+<p>Starting from the year 2020, the subreddits of countries belonging to cluster 1 show a significant increase in the frequency of anglicisms compared to those of other countries. During the years 2018 and 2019, countries in cluster 2 took the lead in terms of anglicism frequency. Based on these findings, it can be concluded that the quantity of anglicisms is influenced by trade relationships with the United States.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jfeggio.github.io/tags/uni/">uni</a></li>
+      <li><a href="https://jfeggio.github.io/tags/natural-language-processing/">natural language processing</a></li>
+      <li><a href="https://jfeggio.github.io/tags/data-wrangling/">data wrangling</a></li>
+      <li><a href="https://jfeggio.github.io/tags/nlp/">nlp</a></li>
+      <li><a href="https://jfeggio.github.io/tags/spacy/">spacy</a></li>
+      <li><a href="https://jfeggio.github.io/tags/nltk/">nltk</a></li>
+      <li><a href="https://jfeggio.github.io/tags/topic-modelling/">topic modelling</a></li>
+      <li><a href="https://jfeggio.github.io/tags/text-mining/">text mining</a></li>
+      <li><a href="https://jfeggio.github.io/tags/social-media/">social media</a></li>
+      <li><a href="https://jfeggio.github.io/tags/kmeans/">kmeans</a></li>
+      <li><a href="https://jfeggio.github.io/tags/api/">api</a></li>
+      <li><a href="https://jfeggio.github.io/tags/reddit/">reddit</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
