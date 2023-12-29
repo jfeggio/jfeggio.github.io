@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>unsupervised machine learning on JFeggio</title>
+    <link>https://jfeggio.github.io/categories/unsupervised-machine-learning/</link>
+    <description>Recent content in unsupervised machine learning on JFeggio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/categories/unsupervised-machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit </title>
+      <link>https://jfeggio.github.io/posts/nlpreddit/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/nlpreddit/</guid>
+      <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python
+Goal: Analyse the frequency, the type and the related-topic of English words in the Latin American Spanish-speaking subreddits of the social media platform Reddit for the period 2016-2023. Finally, it will be taken into account the influence of economic relations with United States and the amount of tourists (&amp;gt;1.</description>
+    </item>
+    
+    <item>
+      <title>World Happiness Report - A Cluster Analysis [1/2]</title>
+      <link>https://jfeggio.github.io/posts/whr1/</link>
+      <pubDate>Thu, 22 Dec 2022 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/whr1/</guid>
+      <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Outliers Cluster Analysis Number of Clusters Hierarchical Analysis Non-Hierarchical Analysis ANOVA Conclusion (PCA) Introduction Language used: R
+Database used: The World Happiness report from 2021 which is a global survey data to report how people evaluate their own lives in more than 150 countries worldwide.
+Packages used: dplyr: to obtain a general descriptive analysis of the data. corrplot: to create correlation matrix readxl: to import the database (.</description>
+    </item>
+    
+    <item>
+      <title>World Happiness Report - A Principal Components Analysis [2/2]</title>
+      <link>https://jfeggio.github.io/posts/whr2/</link>
+      <pubDate>Thu, 22 Dec 2022 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/whr2/</guid>
+      <description>Table of Contents Introduction Descriptive Analysis Outliers Principal Components Analysis Eigenvalues Loadings Correlation between components Components 1 (Quality of Life) and 2 (Economy/Corruption) Components 1 (Quality of Life) and 3 (Social Support/Corruption) Components 2 (Economy/Corruption) and 3 (Social Support/Corruption) Conclusion Introduction Please refer to the Introduction of &amp;ldquo;World Happiness Report - A Cluster Analysis [1/2]&amp;rdquo; as this is the second part of this work.
+Descriptive Analysis Please refer to the Descriptive Analysis of &amp;ldquo;World Happiness Report - A Cluster Analysis [1/2]&amp;rdquo; as this is the second part of this work.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>nlp on JFeggio</title>
+    <link>https://jfeggio.github.io/categories/nlp/</link>
+    <description>Recent content in nlp on JFeggio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/categories/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit </title>
+      <link>https://jfeggio.github.io/posts/nlpreddit/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/nlpreddit/</guid>
+      <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python
+Goal: Analyse the frequency, the type and the related-topic of English words in the Latin American Spanish-speaking subreddits of the social media platform Reddit for the period 2016-2023. Finally, it will be taken into account the influence of economic relations with United States and the amount of tourists (&amp;gt;1.</description>
+    </item>
+    
+  </channel>
+</rss>
