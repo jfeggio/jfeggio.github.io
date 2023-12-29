@@ -6,7 +6,6 @@
     <description>Recent content in uni on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-<<<<<<< HEAD
     <lastBuildDate>Fri, 22 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/uni/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit </title>
@@ -15,16 +14,6 @@
       
       <guid>https://jfeggio.github.io/posts/nlpreddit/</guid>
       <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python
-=======
-    <lastBuildDate>Thu, 21 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/uni/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit</title>
-      <link>https://jfeggio.github.io/posts/nlp_reddit/</link>
-      <pubDate>Thu, 21 Dec 2023 20:38:41 +0100</pubDate>
-      
-      <guid>https://jfeggio.github.io/posts/nlp_reddit/</guid>
-      <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python
->>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
 Goal: Analyse the frequency, the type and the related-topic of English words in the Latin American Spanish-speaking subreddits of the social media platform Reddit for the period 2016-2023. Finally, it will be taken into account the influence of economic relations with United States and the amount of tourists (&amp;gt;1.</description>
     </item>
     
@@ -34,15 +23,9 @@ Goal: Analyse the frequency, the type and the related-topic of English words in 
       <pubDate>Thu, 29 Dec 2022 13:40:02 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/posts/programacionlineal/</guid>
-<<<<<<< HEAD
       <description>Table of Contents Introduction Mathematical Model Solution Introduction Language used: Excel (Solver add-on)
 Task to solve:
 Money to be invested: $5.000.000 Investment type Earning to be achieved (per year) Investment limit (milions) Consumer credit 7% 1 Corporative bonds 11% 1.5 Gold deposits 19% 2.5 Housing loans 12% 1.7 Additional Limits:
-=======
-      <description>Table of Contents Introduction Mathematical Model Solution Introduction Language used: Excel (Solver add-on)
-Task to solve:
-Money to be invested: $5.000.000 Investment type Earning to be achieved (per year) Investment limit (milions) Consumer credit 7% 1 Corporative bonds 11% 1.5 Gold deposits 19% 2.5 Housing loans 12% 1.7 Additional Limits:
->>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
 Investment type Investment out of all funds Consumer credit Maximum 15% Housing loans &amp;amp; Gold deposits Minimum	5% Mathematical Model Decision Variables:</description>
     </item>
     
@@ -52,17 +35,10 @@ Investment type Investment out of all funds Consumer credit Maximum 15% Housing 
       <pubDate>Thu, 29 Dec 2022 13:40:02 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/posts/markovchain/</guid>
-<<<<<<< HEAD
       <description>Table of Contents Introduction Mathematical Model Solution Introduction Language used: R (Markov Chains package)
 Task to solve: Analyze the Bad Payers situation.
 Transitional matrix with this components: Group A (good payers)
 30% will stay in this category 30% will become a bad payer (Group B) The rest will pay all overdue Group B (bad payers)
-=======
-      <description>Table of Contents Introduction Mathematical Model Solution Introduction Language used: R (Markov Chains package)
-Task to solve: Analyze the Bad Payers situation.
-Transitional matrix with this components: Group A (good payers)
-30% will stay in this category 30% will become a bad payer (Group B) The rest will pay all overdue Group B (bad payers)
->>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
 10% goes to the default stage 20% pays the overdue 40% will stay in Group B 30% will go to Group A D (default): Default</description>
     </item>
     
@@ -72,13 +48,8 @@ Transitional matrix with this components: Group A (good payers)
       <pubDate>Thu, 22 Dec 2022 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/posts/whr1/</guid>
-<<<<<<< HEAD
       <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Outliers Cluster Analysis Number of Clusters Hierarchical Analysis Non-Hierarchical Analysis ANOVA Conclusion (PCA) Introduction Language used: R
 Database used: The World Happiness report from 2021 which is a global survey data to report how people evaluate their own lives in more than 150 countries worldwide.
-=======
-      <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Outliers Cluster Analysis Number of Clusters Hierarchical Analysis Non-Hierarchical Analysis ANOVA Conclusion (PCA) Introduction Language used: R
-Database used: The World Happiness report from 2021 which is a global survey data to report how people evaluate their own lives in more than 150 countries worldwide.
->>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
 Packages used: dplyr: to obtain a general descriptive analysis of the data. corrplot: to create correlation matrix readxl: to import the database (.</description>
     </item>
     
@@ -88,11 +59,7 @@ Packages used: dplyr: to obtain a general descriptive analysis of the data. corr
       <pubDate>Thu, 22 Dec 2022 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/posts/whr2/</guid>
-<<<<<<< HEAD
       <description>Table of Contents Introduction Descriptive Analysis Outliers Principal Components Analysis Eigenvalues Loadings Correlation between components Components 1 (Quality of Life) and 2 (Economy/Corruption) Components 1 (Quality of Life) and 3 (Social Support/Corruption) Components 2 (Economy/Corruption) and 3 (Social Support/Corruption) Conclusion Introduction Please refer to the Introduction of &amp;ldquo;World Happiness Report - A Cluster Analysis [1/2]&amp;rdquo; as this is the second part of this work.
-=======
-      <description>Table of Contents Introduction Descriptive Analysis Outliers Principal Components Analysis Eigenvalues Loadings Correlation between components Components 1 (Quality of Life) and 2 (Economy/Corruption) Components 1 (Quality of Life) and 3 (Social Support/Corruption) Components 2 (Economy/Corruption) and 3 (Social Support/Corruption) Conclusion Introduction Please refer to the Introduction of &amp;ldquo;World Happiness Report - A Cluster Analysis [1/2]&amp;rdquo; as this is the second part of this work.
->>>>>>> fe1e1171d85e9a4a3098ca52b44c0340871c3b66
 Descriptive Analysis Please refer to the Descriptive Analysis of &amp;ldquo;World Happiness Report - A Cluster Analysis [1/2]&amp;rdquo; as this is the second part of this work.</description>
     </item>
     
