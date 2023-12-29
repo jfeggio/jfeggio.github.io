@@ -6,7 +6,17 @@
     <description>Recent content in Posts on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Dec 2022 13:40:02 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit </title>
+      <link>https://jfeggio.github.io/posts/nlp_reddit/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/nlp_reddit/</guid>
+      <description>Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python
+Goal: Analyse the frequency, the type and the related-topic of English words in the Latin American Spanish-speaking subreddits of the social media platform Reddit for the period 2016-2023. Finally, it will be taken into account the influence of economic relations with United States and the amount of tourists (&amp;gt;1.</description>
+    </item>
+    
     <item>
       <title>Linear Programming - Investment funds</title>
       <link>https://jfeggio.github.io/posts/programacionlineal/</link>
@@ -62,15 +72,6 @@ Packages used: dplyr: to obtain a general descriptive analysis of the data. corr
       <guid>https://jfeggio.github.io/posts/whr2/</guid>
       <description>Table of Contents Introduction Descriptive Analysis Outliers Principal Components Analysis Eigenvalues Loadings Correlation between components Components 1 (Quality of Life) and 2 (Economy/Corruption) Components 1 (Quality of Life) and 3 (Social Support/Corruption) Components 2 (Economy/Corruption) and 3 (Social Support/Corruption) Conclusion Introduction Please refer to the Introduction of &amp;ldquo;World Happiness Report - A Cluster Analysis [1/2]&amp;rdquo; as this is the second part of this work.
 Descriptive Analysis Please refer to the Descriptive Analysis of &amp;ldquo;World Happiness Report - A Cluster Analysis [1/2]&amp;rdquo; as this is the second part of this work.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://jfeggio.github.io/posts/nlp_reddit/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jfeggio.github.io/posts/nlp_reddit/</guid>
-      <description>git&amp;mdash; title: &amp;ldquo;Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit &amp;quot; date: 2023-12-22T20:38:41+01:00 draft: false tags: [&amp;ldquo;uni&amp;rdquo;, &amp;ldquo;natural language processing&amp;rdquo;, &amp;ldquo;data wrangling&amp;rdquo;,&amp;ldquo;nlp&amp;rdquo;,&amp;ldquo;spacy&amp;rdquo;,&amp;ldquo;nltk&amp;rdquo;,&amp;ldquo;topic modelling&amp;rdquo;,&amp;ldquo;text-mining&amp;rdquo;,&amp;ldquo;kmeans&amp;rdquo;,&amp;ldquo;api&amp;rdquo;,&amp;ldquo;reddit&amp;rdquo;] categories: [&amp;ldquo;uni&amp;rdquo;, &amp;ldquo;python&amp;rdquo;, &amp;ldquo;multivariate analysis&amp;rdquo;, &amp;ldquo;unsupervised machine learning&amp;rdquo;, &amp;ldquo;nlp&amp;rdquo;] Table of Contents Introduction Data Wrangling Descriptive Analysis Frequency of English words by year (2016-2023) Named-entity recognition (NER) and Topic Modelling NER Topic Modelling Cluster Analysis K-Means Influence of US by year Introduction Language used: Python</description>
     </item>
     
   </channel>

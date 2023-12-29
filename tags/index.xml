@@ -6,7 +6,106 @@
     <description>Recent content in Tags on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Dec 2022 13:40:02 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>api</title>
+      <link>https://jfeggio.github.io/tags/api/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data wrangling</title>
+      <link>https://jfeggio.github.io/tags/data-wrangling/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/data-wrangling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kmeans</title>
+      <link>https://jfeggio.github.io/tags/kmeans/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/kmeans/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>natural language processing</title>
+      <link>https://jfeggio.github.io/tags/natural-language-processing/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/natural-language-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nlp</title>
+      <link>https://jfeggio.github.io/tags/nlp/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nltk</title>
+      <link>https://jfeggio.github.io/tags/nltk/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/nltk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reddit</title>
+      <link>https://jfeggio.github.io/tags/reddit/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/reddit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spacy</title>
+      <link>https://jfeggio.github.io/tags/spacy/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/spacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>text-mining</title>
+      <link>https://jfeggio.github.io/tags/text-mining/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/text-mining/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>topic modelling</title>
+      <link>https://jfeggio.github.io/tags/topic-modelling/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/topic-modelling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>uni</title>
+      <link>https://jfeggio.github.io/tags/uni/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/uni/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>excel</title>
       <link>https://jfeggio.github.io/tags/excel/</link>
@@ -53,15 +152,6 @@
     </item>
     
     <item>
-      <title>uni</title>
-      <link>https://jfeggio.github.io/tags/uni/</link>
-      <pubDate>Thu, 29 Dec 2022 13:40:02 +0100</pubDate>
-      
-      <guid>https://jfeggio.github.io/tags/uni/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>airbnb</title>
       <link>https://jfeggio.github.io/tags/airbnb/</link>
       <pubDate>Thu, 22 Dec 2022 20:38:41 +0100</pubDate>
@@ -103,15 +193,6 @@
       <pubDate>Thu, 22 Dec 2022 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/tags/correlation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>data wrangling</title>
-      <link>https://jfeggio.github.io/tags/data-wrangling/</link>
-      <pubDate>Thu, 22 Dec 2022 20:38:41 +0100</pubDate>
-      
-      <guid>https://jfeggio.github.io/tags/data-wrangling/</guid>
       <description></description>
     </item>
     
