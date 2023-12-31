@@ -6,7 +6,20 @@
     <description>Recent content in data wrangling on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/data-wrangling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/data-wrangling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Panel data analysis for Happiness reports (2015-2020) </title>
+      <link>https://jfeggio.github.io/posts/panel_analysis/</link>
+      <pubDate>Sun, 31 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/panel_analysis/</guid>
+      <description>Table of Contents Introduction Exploratory Data Analysis Preprocessing Data Modelling and Testing Conclusion Introduction Language used: R
+Description of the dataset and variables, refer to: http://jfeggio.github.io/posts/whr1/
+Goal: Identify if there is a positive correlation between the variable log_gdp and the reported happiness score (life_ladder)
+Exploratory Data Analysis Variable Life ladder among all years
+The histogram has a symmetrical distribution centered around 6.7. The majority of observations fall within the range of 6.</description>
+    </item>
+    
     <item>
       <title>Use of Anglicisms on Spanish-speaking Latin American subreddits on the social media platform Reddit </title>
       <link>https://jfeggio.github.io/posts/nlp_reddit/</link>

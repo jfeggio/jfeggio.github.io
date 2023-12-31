@@ -2,22 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jfeggio.github.io/categories/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
+    <loc>https://jfeggio.github.io/tags/data-wrangling/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
+    <loc>https://jfeggio.github.io/tags/happiness-report/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
+    <loc>https://jfeggio.github.io/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
+    <loc>https://jfeggio.github.io/categories/multivariate-analysis/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
+    <loc>https://jfeggio.github.io/posts/panel_analysis/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
+    <loc>https://jfeggio.github.io/tags/panel-data/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
+    <loc>https://jfeggio.github.io/categories/panel-data/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
+    <loc>https://jfeggio.github.io/posts/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
+    <loc>https://jfeggio.github.io/categories/python/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
+    <loc>https://jfeggio.github.io/tags/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
+    <loc>https://jfeggio.github.io/tags/uni/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
+    <loc>https://jfeggio.github.io/categories/uni/</loc>
+    <lastmod>2023-12-31T20:38:41+01:00</lastmod>
+  </url><url>
     <loc>https://jfeggio.github.io/tags/api/</loc>
     <lastmod>2023-12-22T20:38:41+01:00</lastmod>
   </url><url>
-    <loc>https://jfeggio.github.io/categories/</loc>
-    <lastmod>2023-12-22T20:38:41+01:00</lastmod>
-  </url><url>
-    <loc>https://jfeggio.github.io/tags/data-wrangling/</loc>
-    <lastmod>2023-12-22T20:38:41+01:00</lastmod>
-  </url><url>
-    <loc>https://jfeggio.github.io/</loc>
-    <lastmod>2023-12-22T20:38:41+01:00</lastmod>
-  </url><url>
     <loc>https://jfeggio.github.io/tags/kmeans/</loc>
-    <lastmod>2023-12-22T20:38:41+01:00</lastmod>
-  </url><url>
-    <loc>https://jfeggio.github.io/categories/multivariate-analysis/</loc>
     <lastmod>2023-12-22T20:38:41+01:00</lastmod>
   </url><url>
     <loc>https://jfeggio.github.io/tags/natural-language-processing/</loc>
@@ -32,31 +59,16 @@
     <loc>https://jfeggio.github.io/tags/nltk/</loc>
     <lastmod>2023-12-22T20:38:41+01:00</lastmod>
   </url><url>
-    <loc>https://jfeggio.github.io/posts/</loc>
-    <lastmod>2023-12-22T20:38:41+01:00</lastmod>
-  </url><url>
-    <loc>https://jfeggio.github.io/categories/python/</loc>
-    <lastmod>2023-12-22T20:38:41+01:00</lastmod>
-  </url><url>
     <loc>https://jfeggio.github.io/tags/reddit/</loc>
     <lastmod>2023-12-22T20:38:41+01:00</lastmod>
   </url><url>
     <loc>https://jfeggio.github.io/tags/spacy/</loc>
     <lastmod>2023-12-22T20:38:41+01:00</lastmod>
   </url><url>
-    <loc>https://jfeggio.github.io/tags/</loc>
-    <lastmod>2023-12-22T20:38:41+01:00</lastmod>
-  </url><url>
     <loc>https://jfeggio.github.io/tags/text-mining/</loc>
     <lastmod>2023-12-22T20:38:41+01:00</lastmod>
   </url><url>
     <loc>https://jfeggio.github.io/tags/topic-modelling/</loc>
-    <lastmod>2023-12-22T20:38:41+01:00</lastmod>
-  </url><url>
-    <loc>https://jfeggio.github.io/tags/uni/</loc>
-    <lastmod>2023-12-22T20:38:41+01:00</lastmod>
-  </url><url>
-    <loc>https://jfeggio.github.io/categories/uni/</loc>
     <lastmod>2023-12-22T20:38:41+01:00</lastmod>
   </url><url>
     <loc>https://jfeggio.github.io/categories/unsupervised-machine-learning/</loc>

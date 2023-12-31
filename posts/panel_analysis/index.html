@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Panel data analysis for Happiness reports (2015-2020)  | JFeggio</title>
+<meta name="keywords" content="uni, panel-data, data wrangling, happiness-report">
+<meta name="description" content="Table of Contents Introduction Exploratory Data Analysis Preprocessing Data Modelling and Testing Conclusion Introduction Language used: R
+Description of the dataset and variables, refer to: http://jfeggio.github.io/posts/whr1/
+Goal: Identify if there is a positive correlation between the variable log_gdp and the reported happiness score (life_ladder)
+Exploratory Data Analysis Variable Life ladder among all years
+The histogram has a symmetrical distribution centered around 6.7. The majority of observations fall within the range of 6.">
+<meta name="author" content="">
+<link rel="canonical" href="https://jfeggio.github.io/posts/panel_analysis/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://jfeggio.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jfeggio.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jfeggio.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jfeggio.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jfeggio.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Panel data analysis for Happiness reports (2015-2020) " />
+<meta property="og:description" content="Table of Contents Introduction Exploratory Data Analysis Preprocessing Data Modelling and Testing Conclusion Introduction Language used: R
+Description of the dataset and variables, refer to: http://jfeggio.github.io/posts/whr1/
+Goal: Identify if there is a positive correlation between the variable log_gdp and the reported happiness score (life_ladder)
+Exploratory Data Analysis Variable Life ladder among all years
+The histogram has a symmetrical distribution centered around 6.7. The majority of observations fall within the range of 6." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jfeggio.github.io/posts/panel_analysis/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-31T20:38:41+01:00" />
+<meta property="article:modified_time" content="2023-12-31T20:38:41+01:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Panel data analysis for Happiness reports (2015-2020) "/>
+<meta name="twitter:description" content="Table of Contents Introduction Exploratory Data Analysis Preprocessing Data Modelling and Testing Conclusion Introduction Language used: R
+Description of the dataset and variables, refer to: http://jfeggio.github.io/posts/whr1/
+Goal: Identify if there is a positive correlation between the variable log_gdp and the reported happiness score (life_ladder)
+Exploratory Data Analysis Variable Life ladder among all years
+The histogram has a symmetrical distribution centered around 6.7. The majority of observations fall within the range of 6."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://jfeggio.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Panel data analysis for Happiness reports (2015-2020) ",
+      "item": "https://jfeggio.github.io/posts/panel_analysis/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Panel data analysis for Happiness reports (2015-2020) ",
+  "name": "Panel data analysis for Happiness reports (2015-2020) ",
+  "description": "Table of Contents Introduction Exploratory Data Analysis Preprocessing Data Modelling and Testing Conclusion Introduction Language used: R\nDescription of the dataset and variables, refer to: http://jfeggio.github.io/posts/whr1/\nGoal: Identify if there is a positive correlation between the variable log_gdp and the reported happiness score (life_ladder)\nExploratory Data Analysis Variable Life ladder among all years\nThe histogram has a symmetrical distribution centered around 6.7. The majority of observations fall within the range of 6.",
+  "keywords": [
+    "uni", "panel-data", "data wrangling", "happiness-report"
+  ],
+  "articleBody": "Table of Contents Introduction Exploratory Data Analysis Preprocessing Data Modelling and Testing Conclusion Introduction Language used: R\nDescription of the dataset and variables, refer to: http://jfeggio.github.io/posts/whr1/\nGoal: Identify if there is a positive correlation between the variable log_gdp and the reported happiness score (life_ladder)\nExploratory Data Analysis Variable Life ladder among all years\nThe histogram has a symmetrical distribution centered around 6.7. The majority of observations fall within the range of 6.0 to 7.5. A slight negative skewness is observed in the distribution, indicating that there are more countries with happiness levels above the average.\nVariable Life ladder over the years by country\nAustria shows an upward trend in happiness levels from 2015 to 2020, reaching a peak in the latter year. On the other hand, countries like Cyprus and Greece exhibit more noticeable variations in their happiness levels, with fluctuations throughout the analyzed period.\nVariable freedom over the years by country\nIn 2015, Austria and Finland exhibit relatively high levels of freedom, while Greece and Malta have lower levels. As we progress through the years, there are fluctuations in freedom levels, but most countries seem to experience a general trend towards increased perceived freedom in 2020.\nVariable perception of corruption over the years by country\nThroughout the time series, the mean of the variable perception_corruption is observed to remain at moderate levels, indicating a general perception of corruption that varies but does not significantly deviate from the average. However, the year 2020 stands out as a particularly atypical year. The same happens with the variables: social support, life expectancy, logarithm of gdp.\nPreprocessing Data Mahalanobis distance In order to detect atypical values, the mahalanobis distance is used. This calculates distance between a point and a set of points in a multivariate space, taking into account the covariance between variables. By considering covariance, the Mahalanobis distance can identify points that, although not extreme values in a single variable, are unusual in the context of the set of variables.\nTo apply the Mahalanobis distance, the covariance matrix and the critical value of the squared chi distribution is calculated.\nPossible outliers (p-value\u003c0.10)\nGreece, Luxembourg, and Portugal are considered as possible outliers because these are the countries that turn out to be atypical values for two or more years after graphical representation of the values over the years.\nExample of detection of outliers graphs (2019) Greece=purple; Portugal=green; Luxembourg=pink\nDue to Portugal and Greece frequently appearing as outliers in the visualizations, the decision is made to exclude them from the database.\nAdditionally, the data from 2020 will be excluded since the data was particularly atypical. The reason behind this may be related to the COVID-19 pandemic, which had a global impact on various aspects of society.\nModelling and Testing The first step is the conversion of the database into a panel database. Then, a simple linear regression model is run with the two variables mentioned earlier to observe the situation in the year 2015.\nLinear Regression Model (Year 2015) The variable gdp_log is statistically significant and positive. The expected value of life_ladder when gdp_log is zero, is 1.223, and keeping all other variables constant, there is an expected increase of 4.299 points in life_ladder for each increase in gdp_log. A similar model is created to analyze the year 2019, where no significant variations compared to the previously considered data are observed.\nLinear Regression Model (Year 2019) The variable gdp_log remains statistically significant and positive, confirming the initial hypothesis. The expected value of life_ladder when gdp_log is zero is 1.814, and keeping all other variables constant, there is an expected increase of 3.764 points in life_ladder for each increase in gdp_log.\nLinear Regression Pooled Model (All observation)\nConsidering all years, the variable gdp_log is even more statistically significant and maintains its positive character. The OLS linear regression models for the years considered confirm the hypothesis that the variable gdp_log is positively correlated with the variable life_ladder. It is important to highlight that there are characteristics of observations that affect the endogenous variable, not captured by the regressors and remain constant over time for each country, for example: life perspective, culture, history, etc. Therefore, it is appropriate to incorporate unobservable and constant heterogeneity over time for each of the analyzed countries.\nWith Wooldridge’s test of unobservable effects, the null hypothesis that there are no unobservable effects in the residual is tested. This is done to analyze whether it is preferable to use the pooled OLS model.\nWooldridge Test In this case, the null hypothesis that there is no unobservable heterogeneity is rejected, concluding that it is not advisable to use the pooled OLS model. It is then decided to develop fixed and random effects models.\nFixed Effects Model In the fixed model, unobservable heterogeneity is considered constant. The variable gdp_log remains statistically significant but becomes negative, rejecting the initial hypothesis.\nFixed Effects Model (Two Ways)\nThe model with fixed effects is generalized to two effects: one for individuals and one for time. In this case, the coefficient is 0.204, and it is not statistically significant. Additionally, the two-component model has a lower R-squared value compared to the one-component model. For these reasons, the one-component model is considered preferable.\nTo validate the choice of the fixed effects model over the pooled OLS model, the F-test is used to evaluate the existence of individual effects.\nF-Test (Fixed Effects, Pooled OLS)\nWith the p-value less than 0.05, the null hypothesis is rejected, concluding that there are individual effects, and it is confirmed that the fixed effects model is the best choice.\nRandom Effects Model\nThe random effects model is developed, where unobservable heterogeneity varies over time according to a certain probability distribution.\nIn this model, the variable gdp_log also has a negative impact but is not statistically significant in the dependent variable life_ladder. To decide which model to use, the differences between the values of both estimates are evaluated using the Hausman test. To perform this test, the assumptions that errors are homoscedastic must be met. To verify this, the Breusch-Pagan test is used.\nBreusch-Pagan Test The p-value is greater than 0.05, meaning that the null hypothesis of no heterogeneity cannot be rejected. To consider heterogeneity values, the “aux” variant based on an auxiliary regression is added, and a robust covariance matrix is specified with the vcov argument to the Hausman test.\nHausman Test With a p-value less than 0.05, the null hypothesis cannot be rejected, and the fixed effects estimator is preferred. This result seems reasonable, as the fixed effects model is suitable for analyzing a certain number of non-random individuals, and inference is restricted to the behavior of these individuals.\nWooldridge Test (Fixed Effects)\nTo detect autocorrelation, the Wooldridge test is applied to the fixed effects model. Since the p-value is less than 0.05, the null hypothesis of no serial correlation is rejected.\nUnable to discard autocorrelation, the same test is applied to a model using the difference estimator.\nWooldridge Test (Differences)\nIn this case, the null hypothesis is also rejected, but with a p-value of 66%, which is much higher than obtained testing autocorrelation with the fixed effects model. This suggests that this model is better.\nA differences model is then determined to be the most efficient model.\nDifferences Model\nThe model indicates that both the intercept and the variable gdp_log are statistically significant and have a negative impact on the dependent variable life_ladder. However, the R-squared suggests that the model explains a relatively low proportion of the variability in the dependent variable, only 11%.\nThe observed negative correlation may be due to various factors. An increase in GDP may occur, but it does not always translate directly into an improvement in the quality of life for all strata of society. The way in which wealth is distributed among different population segments and other related factors can influence how the increase in GDP affects happiness.\nFinally, the relationship between income and happiness can be subjective and vary considerably between individuals and cultures. Some people may attribute greater value to quality of life, equality, or other non-strictly economic aspects, which can affect the perception of happiness in relation to GDP.\nConclusion This study aimed to confirm the positive correlation between the logarithmic Gross Domestic Product (gdp_log) and the happiness score of each country (life_ladder). The initial hypothesis, suggesting a positive relationship, was rejected, as the models revealed a significant but negative relationship between the two variables. Initially, a positive and significant relationship was observed in simple linear regression models that did not consider the presence of unobservable heterogeneity.\n",
+  "wordCount" : "1421",
+  "inLanguage": "en",
+  "datePublished": "2023-12-31T20:38:41+01:00",
+  "dateModified": "2023-12-31T20:38:41+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jfeggio.github.io/posts/panel_analysis/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JFeggio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jfeggio.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jfeggio.github.io/" accesskey="h" title="JFeggio (Alt + H)">JFeggio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jfeggio.github.io/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jfeggio.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jfeggio.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Panel data analysis for Happiness reports (2015-2020) 
+    </h1>
+  </header> 
+  <div class="post-content"><h3 id="table-of-contents">Table of Contents<a hidden class="anchor" aria-hidden="true" href="#table-of-contents">#</a></h3>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+<li><a href="#preprocessing-data">Preprocessing Data</a></li>
+<li><a href="#modelling-and-testing">Modelling and Testing</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p><strong>Language used:</strong> R</p>
+<p>Description of the dataset and variables, refer to: <a href="http://jfeggio.github.io/posts/whr1/">http://jfeggio.github.io/posts/whr1/</a></p>
+<p><strong>Goal:</strong> Identify if there is a positive correlation between the variable log_gdp and the reported happiness score (life_ladder)</p>
+<h2 id="exploratory-data-analysis">Exploratory Data Analysis<a hidden class="anchor" aria-hidden="true" href="#exploratory-data-analysis">#</a></h2>
+<p><strong>Variable Life ladder among all years</strong></p>
+<p><img loading="lazy" src="/pd_hist_life_ladder.png" alt="graph_1_hist"  />
+</p>
+<p>The histogram has a symmetrical distribution centered around 6.7. The majority of observations fall within the range of 6.0 to 7.5. A slight negative skewness is observed in the distribution, indicating that there are more countries with happiness levels above the average.</p>
+<p><strong>Variable Life ladder over the years by country</strong></p>
+<p><img loading="lazy" src="/pd_hist_y_lifel.png" alt="graph_2"  />
+</p>
+<p>Austria shows an upward trend in happiness levels from 2015 to 2020, reaching a peak in the latter year. On the other hand, countries like Cyprus and Greece exhibit more noticeable variations in their happiness levels, with fluctuations throughout the analyzed period.</p>
+<p><strong>Variable freedom over the years by country</strong></p>
+<p><img loading="lazy" src="/pd_fr_country.png" alt="graph_3"  />
+</p>
+<p>In 2015, Austria and Finland exhibit relatively high levels of freedom, while Greece and Malta have lower levels. As we progress through the years, there are fluctuations in freedom levels, but most countries seem to experience a general trend towards increased perceived freedom in 2020.</p>
+<p><strong>Variable perception of corruption over the years by country</strong></p>
+<p><img loading="lazy" src="/pd_pll_country.png" alt="graph_4"  />
+</p>
+<p>Throughout the time series, the mean of the variable perception_corruption is observed to remain at moderate levels, indicating a general perception of corruption that varies but does not significantly deviate from the average. However, the year 2020 stands out as a particularly atypical year. The same happens with the variables: social support, life expectancy, logarithm of gdp.</p>
+<h2 id="preprocessing-data">Preprocessing Data<a hidden class="anchor" aria-hidden="true" href="#preprocessing-data">#</a></h2>
+<p><strong>Mahalanobis distance</strong>
+In order to detect atypical values, the mahalanobis distance is used. This calculates distance between a point and a set of points in a multivariate space, taking into account the covariance between variables. By considering covariance, the Mahalanobis distance can identify points that, although not extreme values in a single variable, are unusual in the context of the set of variables.</p>
+<p>To apply the Mahalanobis distance, the covariance matrix and the critical value of the squared chi distribution is calculated.</p>
+<p><strong>Possible outliers (p-value&lt;0.10)</strong></p>
+<p><img loading="lazy" src="/pd_possible_outliers.png" alt="graph_5"  />
+</p>
+<p>Greece, Luxembourg, and Portugal are considered as possible outliers because these are the countries that turn out to be atypical values for two or more years after graphical representation of the values over the years.</p>
+<p><strong>Example of detection of outliers graphs (2019)</strong>
+Greece=purple; Portugal=green; Luxembourg=pink</p>
+<p><img loading="lazy" src="/pd_possible_outliers_graph.png" alt="graph_6"  />
+</p>
+<p>Due to Portugal and Greece frequently appearing as outliers in the visualizations, the decision is made to exclude them from the database.</p>
+<p>Additionally, the data from 2020 will be excluded since the data was particularly atypical. The reason behind this may be related to the COVID-19 pandemic, which had a global impact on various aspects of society.</p>
+<h2 id="modelling-and-testing">Modelling and Testing<a hidden class="anchor" aria-hidden="true" href="#modelling-and-testing">#</a></h2>
+<p>The first step is the conversion of the database into a panel database. Then, a simple linear regression model is run with the two variables mentioned earlier to observe the situation in the year 2015.</p>
+<p><strong>Linear Regression Model (Year 2015)</strong>
+<img loading="lazy" src="/pd_simplelr2015.png" alt="graph_7"  />
+</p>
+<p>The variable <code>gdp_log</code> is statistically significant and positive. The expected value of <code>life_ladder</code> when <code>gdp_log</code> is zero, is 1.223, and keeping all other variables constant, there is an expected increase of 4.299 points in <code>life_ladder</code> for each increase in <code>gdp_log</code>. A similar model is created to analyze the year 2019, where no significant variations compared to the previously considered data are observed.</p>
+<p><strong>Linear Regression Model (Year 2019)</strong>
+<img loading="lazy" src="/pd_simplelr2019.png" alt="graph_8"  />
+</p>
+<p>The variable <code>gdp_log</code> remains statistically significant and positive, confirming the initial hypothesis. The expected value of <code>life_ladder</code> when <code>gdp_log</code> is zero is 1.814, and keeping all other variables constant, there is an expected increase of 3.764 points in <code>life_ladder</code> for each increase in <code>gdp_log</code>.</p>
+<p><strong>Linear Regression Pooled Model (All observation)</strong></p>
+<p><img loading="lazy" src="/pd_simplelrpooled.png" alt="graph_8"  />
+</p>
+<p>Considering all years, the variable <code>gdp_log</code> is even more statistically significant and maintains its positive character. The OLS linear regression models for the years considered confirm the hypothesis that the variable <code>gdp_log</code> is positively correlated with the variable <code>life_ladder</code>. It is important to highlight that there are characteristics of observations that affect the endogenous variable, not captured by the regressors and remain constant over time for each country, for example: life perspective, culture, history, etc. Therefore, it is appropriate to incorporate unobservable and constant heterogeneity over time for each of the analyzed countries.</p>
+<p>With Wooldridge&rsquo;s test of unobservable effects, the null hypothesis that there are no unobservable effects in the residual is tested. This is done to analyze whether it is preferable to use the pooled OLS model.</p>
+<p><strong>Wooldridge Test</strong>
+<img loading="lazy" src="/pd_wooldridge.png" alt="graph_9"  />
+</p>
+<p>In this case, the null hypothesis that there is no unobservable heterogeneity is rejected, concluding that it is not advisable to use the pooled OLS model. It is then decided to develop fixed and random effects models.</p>
+<p><strong>Fixed Effects Model</strong>
+<img loading="lazy" src="/pd_fixedmodel.png" alt="graph_10"  />
+</p>
+<p>In the fixed model, unobservable heterogeneity is considered constant. The variable <code>gdp_log</code> remains statistically significant but becomes negative, rejecting the initial hypothesis.</p>
+<p><strong>Fixed Effects Model (Two Ways)</strong></p>
+<p><img loading="lazy" src="/pd_fixedmodel2.png" alt="graph_11"  />
+</p>
+<p>The model with fixed effects is generalized to two effects: one for individuals and one for time. In this case, the coefficient is 0.204, and it is not statistically significant. Additionally, the two-component model has a lower R-squared value compared to the one-component model. For these reasons, the one-component model is considered preferable.</p>
+<p>To validate the choice of the fixed effects model over the pooled OLS model, the F-test is used to evaluate the existence of individual effects.</p>
+<p><strong>F-Test (Fixed Effects, Pooled OLS)</strong></p>
+<p><img loading="lazy" src="/pd_ftestfols.png" alt="graph_12"  />
+</p>
+<p>With the p-value less than 0.05, the null hypothesis is rejected, concluding that there are individual effects, and it is confirmed that the fixed effects model is the best choice.</p>
+<p><strong>Random Effects Model</strong></p>
+<p><img loading="lazy" src="/pd_randommodel.png" alt="graph_13"  />
+</p>
+<p>The random effects model is developed, where unobservable heterogeneity varies over time according to a certain probability distribution.</p>
+<p>In this model, the variable <code>gdp_log</code> also has a negative impact but is not statistically significant in the dependent variable <code>life_ladder</code>. To decide which model to use, the differences between the values of both estimates are evaluated using the Hausman test.
+To perform this test, the assumptions that errors are homoscedastic must be met. To verify this, the Breusch-Pagan test is used.</p>
+<p><strong>Breusch-Pagan Test</strong>
+<img loading="lazy" src="/pd_bptest.png" alt="graph_14"  />
+</p>
+<p>The p-value is greater than 0.05, meaning that the null hypothesis of no heterogeneity cannot be rejected. To consider heterogeneity values, the &ldquo;aux&rdquo; variant based on an auxiliary regression is added, and a robust covariance matrix is specified with the vcov argument to the Hausman test.</p>
+<p><strong>Hausman Test</strong>
+<img loading="lazy" src="/pd_hausmantest.png" alt="graph_15"  />
+</p>
+<p>With a p-value less than 0.05, the null hypothesis cannot be rejected, and the fixed effects estimator is preferred. This result seems reasonable, as the fixed effects model is suitable for analyzing a certain number of non-random individuals, and inference is restricted to the behavior of these individuals.</p>
+<p><strong>Wooldridge Test (Fixed Effects)</strong></p>
+<p><img loading="lazy" src="/pd_wooldridgefixed.png" alt="graph_16"  />
+</p>
+<p>To detect autocorrelation, the Wooldridge test is applied to the fixed effects model. Since the p-value is less than 0.05, the null hypothesis of no serial correlation is rejected.</p>
+<p>Unable to discard autocorrelation, the same test is applied to a model using the difference estimator.</p>
+<p><strong>Wooldridge Test (Differences)</strong></p>
+<p><img loading="lazy" src="/pd_wooldridgedif.png" alt="graph_17"  />
+</p>
+<p>In this case, the null hypothesis is also rejected, but with a p-value of 66%, which is much higher than obtained testing autocorrelation with the fixed effects model. This suggests that this model is better.</p>
+<p>A differences model is then determined to be the most efficient model.</p>
+<p><strong>Differences Model</strong></p>
+<p><img loading="lazy" src="/pd_difference.png" alt="graph_18"  />
+</p>
+<p>The model indicates that both the intercept and the variable <code>gdp_log</code> are statistically significant and have a negative impact on the dependent variable <code>life_ladder</code>. However, the R-squared suggests that the model explains a relatively low proportion of the variability in the dependent variable, only 11%.</p>
+<p>The observed negative correlation may be due to various factors. An increase in GDP may occur, but it does not always translate directly into an improvement in the quality of life for all strata of society. The way in which wealth is distributed among different population segments and other related factors can influence how the increase in GDP affects happiness.</p>
+<p>Finally, the relationship between income and happiness can be subjective and vary considerably between individuals and cultures. Some people may attribute greater value to quality of life, equality, or other non-strictly economic aspects, which can affect the perception of happiness in relation to GDP.</p>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>This study aimed to confirm the positive correlation between the logarithmic Gross Domestic Product (gdp_log) and the happiness score of each country (life_ladder). The initial hypothesis, suggesting a positive relationship, was rejected, as the models revealed a significant but negative relationship between the two variables. Initially, a positive and significant relationship was observed in simple linear regression models that did not consider the presence of unobservable heterogeneity.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jfeggio.github.io/tags/uni/">uni</a></li>
+      <li><a href="https://jfeggio.github.io/tags/panel-data/">panel-data</a></li>
+      <li><a href="https://jfeggio.github.io/tags/data-wrangling/">data wrangling</a></li>
+      <li><a href="https://jfeggio.github.io/tags/happiness-report/">happiness-report</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

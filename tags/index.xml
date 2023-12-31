@@ -6,22 +6,49 @@
     <description>Recent content in Tags on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>data wrangling</title>
+      <link>https://jfeggio.github.io/tags/data-wrangling/</link>
+      <pubDate>Sun, 31 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/data-wrangling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>happiness-report</title>
+      <link>https://jfeggio.github.io/tags/happiness-report/</link>
+      <pubDate>Sun, 31 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/happiness-report/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>panel-data</title>
+      <link>https://jfeggio.github.io/tags/panel-data/</link>
+      <pubDate>Sun, 31 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/panel-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>uni</title>
+      <link>https://jfeggio.github.io/tags/uni/</link>
+      <pubDate>Sun, 31 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/uni/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>api</title>
       <link>https://jfeggio.github.io/tags/api/</link>
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/tags/api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>data wrangling</title>
-      <link>https://jfeggio.github.io/tags/data-wrangling/</link>
-      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
-      
-      <guid>https://jfeggio.github.io/tags/data-wrangling/</guid>
       <description></description>
     </item>
     
@@ -94,15 +121,6 @@
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/tags/topic-modelling/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>uni</title>
-      <link>https://jfeggio.github.io/tags/uni/</link>
-      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
-      
-      <guid>https://jfeggio.github.io/tags/uni/</guid>
       <description></description>
     </item>
     
