@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>predictive-modelling on JFeggio</title>
+    <link>https://jfeggio.github.io/categories/predictive-modelling/</link>
+    <description>Recent content in predictive-modelling on JFeggio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/categories/predictive-modelling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>House Prices Prediction with Regression Modelling and Features Selection</title>
+      <link>https://jfeggio.github.io/posts/house_prediction/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/house_prediction/</guid>
+      <description>Table of Contents Introduction Data Wrangling Model Introduction Language used: Python
+Goal: Prediction of house prices.
+Data used: Dataset from Properati website (https://www.properati.com.ar/). Two datasets: one for training (dataframe: dfef) and one for testing (dataframe: dfp)
+Link to the Dataset: https://www.kaggle.com/datasets/jluza92/argentina-properati-listings-dataset-20202021/data (1gb)
+Libraries used
+Library Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices sklearn used for machine learning algorithms for classification, regression, clustering, dimensionality reduction matplotlib.</description>
+    </item>
+    
+  </channel>
+</rss>

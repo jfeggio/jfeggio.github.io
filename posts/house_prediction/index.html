@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>House Prices Prediction with Regression Modelling and Features Selection | JFeggio</title>
+<meta name="keywords" content="uni, scikit-learn, predictive-modelling, feature-selection, data wrangling, sklearn, pandas, numpy, knn-classifier">
+<meta name="description" content="Table of Contents Introduction Data Wrangling Model Introduction Language used: Python
+Goal: Prediction of house prices.
+Data used: Dataset from Properati website (https://www.properati.com.ar/). Two datasets: one for training (dataframe: dfef) and one for testing (dataframe: dfp)
+Link to the Dataset: https://www.kaggle.com/datasets/jluza92/argentina-properati-listings-dataset-20202021/data (1gb)
+Libraries used
+Library Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices sklearn used for machine learning algorithms for classification, regression, clustering, dimensionality reduction matplotlib.">
+<meta name="author" content="">
+<link rel="canonical" href="https://jfeggio.github.io/posts/house_prediction/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://jfeggio.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jfeggio.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jfeggio.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jfeggio.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jfeggio.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="House Prices Prediction with Regression Modelling and Features Selection" />
+<meta property="og:description" content="Table of Contents Introduction Data Wrangling Model Introduction Language used: Python
+Goal: Prediction of house prices.
+Data used: Dataset from Properati website (https://www.properati.com.ar/). Two datasets: one for training (dataframe: dfef) and one for testing (dataframe: dfp)
+Link to the Dataset: https://www.kaggle.com/datasets/jluza92/argentina-properati-listings-dataset-20202021/data (1gb)
+Libraries used
+Library Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices sklearn used for machine learning algorithms for classification, regression, clustering, dimensionality reduction matplotlib." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jfeggio.github.io/posts/house_prediction/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-22T20:38:41+01:00" />
+<meta property="article:modified_time" content="2023-12-22T20:38:41+01:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="House Prices Prediction with Regression Modelling and Features Selection"/>
+<meta name="twitter:description" content="Table of Contents Introduction Data Wrangling Model Introduction Language used: Python
+Goal: Prediction of house prices.
+Data used: Dataset from Properati website (https://www.properati.com.ar/). Two datasets: one for training (dataframe: dfef) and one for testing (dataframe: dfp)
+Link to the Dataset: https://www.kaggle.com/datasets/jluza92/argentina-properati-listings-dataset-20202021/data (1gb)
+Libraries used
+Library Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices sklearn used for machine learning algorithms for classification, regression, clustering, dimensionality reduction matplotlib."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://jfeggio.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "House Prices Prediction with Regression Modelling and Features Selection",
+      "item": "https://jfeggio.github.io/posts/house_prediction/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "House Prices Prediction with Regression Modelling and Features Selection",
+  "name": "House Prices Prediction with Regression Modelling and Features Selection",
+  "description": "Table of Contents Introduction Data Wrangling Model Introduction Language used: Python\nGoal: Prediction of house prices.\nData used: Dataset from Properati website (https://www.properati.com.ar/). Two datasets: one for training (dataframe: dfef) and one for testing (dataframe: dfp)\nLink to the Dataset: https://www.kaggle.com/datasets/jluza92/argentina-properati-listings-dataset-20202021/data (1gb)\nLibraries used\nLibrary Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices sklearn used for machine learning algorithms for classification, regression, clustering, dimensionality reduction matplotlib.",
+  "keywords": [
+    "uni", "scikit-learn", "predictive-modelling", "feature-selection", "data wrangling", "sklearn", "pandas", "numpy", "knn-classifier"
+  ],
+  "articleBody": "Table of Contents Introduction Data Wrangling Model Introduction Language used: Python\nGoal: Prediction of house prices.\nData used: Dataset from Properati website (https://www.properati.com.ar/). Two datasets: one for training (dataframe: dfef) and one for testing (dataframe: dfp)\nLink to the Dataset: https://www.kaggle.com/datasets/jluza92/argentina-properati-listings-dataset-20202021/data (1gb)\nLibraries used\nLibrary Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices sklearn used for machine learning algorithms for classification, regression, clustering, dimensionality reduction matplotlib.pyplot Plotting library to create visualizations seaborn Statistical data visualization tool for informative statistical graphics Variables:\nVariable Description start_date start date of the ad (2019-2020) end_date end date of the ad (2019-2020) created_on creation of the ad (2019-2020) lat latitude lon longitude l1 country where the house is located l2 region where the house is located l3 neighbourhood where the house is located l4 area of the neighbourhood where the house is located rooms Number of rooms bedrooms Number of bedrooms bathrooms Number of bathrooms surface_total total surface of the house surface_covered surface of the house (excluding balcony) price price currency price currency title title of the ad description description of the property property_type type of housing offered Data wrangling Values to be predicted are in dfp dataframe.\nSummary of numeric variables values in the testing dataframe (dfp)\nThe focus is on properties in Capital Federal (Buenos Aires) and the southern area (GBA Zona Sur), specifically flats and penthouses for sale in USD.\nIn the training dataframe (dfef), only properties meeting the criteria in dfp and having a non-null price are considered. Irrelevant columns, such as empty or single-valued ones, are dropped.\nIn both dataframes, unique neighborhood names are identified. We then search for these names in the “title” and “description” columns. If found and the “Neighbourhood” column is empty, it is filled with the discovered value.\nTo handle remaining missing values in the “Neighbourhood” (l4) column, a KNN classifier is applied based on longitude and latitude.\nTo address missing values in the columns the following is used:\nbedrooms: the number of rooms minus 1 (deducting the bathroom). bathrooms: the number of rooms minus the bedrooms. total_surface: same as the value covered_surface, if available. covered_surface: same as the value total_surface, if available. Following this, KNN Imputer is utilized to handle missing values in latitude, longitude, covered_surface, and total_surface.\nWith no missing values in longitude and latitude, the nan values for Neighborhoods are imputed with KNN classifier as with longitude and latitude the neighbourhood can be identified.\nAdditionally, an array is constructed with keywords associated with luxurious apartments.\npalabras_clave = ['parrilla','balcon', 'patio','pileta', 'piletas', 'piscinas', 'gym', 'piscina', 'seguridad', 'subte', 'metrobus', 'terraza', 'jardin']\nThese words are searched in the ’title’ and ‘description’ columns. If they are present, in the new ’luxury’ column is assigned a value of 1; otherwise, it receives a 0.\nEach neighborhood corresponds to a ‘Comuna’. Using another array, a new ‘Comuna’ column is created to associate each neighborhood with the correct Comuna.\nA ‘median_price’ column is added by grouping the columns ’neighbourhood’, ‘rooms’, ‘bedrooms’, ‘bathrooms’ and ‘property_type’ and calculating the median price value for each group. Missing values are addressed by employing a KNN Classifier for imputation.\nModel Dataframes are filtered to contain only numeric columns. Categorical columns are converted to dummies.\nFeatures Selection\nFor regression models, the assumption is that the variables are indepdent, that means not dependent on others. To check this, correlation is tested and only variables with p-values \u003e 0.60 are included.\nImportance Score\nThe most important variables chosen by the model (lon, lat, surface_covered, median_price) in addition to variable “luxury” (as better results are obtained), are used for the prediction.\nAfter trying different models and comparing the related mean squared error, it is considered that the ensamble Random Forest Regressor model provides the best accuracy. It is then applied to the training dataset and then to the testing dataset to get the predictions.\n",
+  "wordCount" : "650",
+  "inLanguage": "en",
+  "datePublished": "2023-12-22T20:38:41+01:00",
+  "dateModified": "2023-12-22T20:38:41+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jfeggio.github.io/posts/house_prediction/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JFeggio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jfeggio.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jfeggio.github.io/" accesskey="h" title="JFeggio (Alt + H)">JFeggio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jfeggio.github.io/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jfeggio.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jfeggio.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      House Prices Prediction with Regression Modelling and Features Selection
+    </h1>
+  </header> 
+  <div class="post-content"><h3 id="table-of-contents">Table of Contents<a hidden class="anchor" aria-hidden="true" href="#table-of-contents">#</a></h3>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#data-wrangling">Data Wrangling</a></li>
+<li><a href="#model">Model</a></li>
+</ol>
+<h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p><strong>Language used:</strong> Python</p>
+<p><strong>Goal:</strong> Prediction of house prices.</p>
+<p><strong>Data used:</strong> Dataset from Properati website (<a href="https://www.properati.com.ar/)">https://www.properati.com.ar/)</a>. Two datasets: one for training (dataframe: dfef) and one for testing (dataframe: dfp)</p>
+<p><strong>Link to the Dataset</strong>: <a href="https://www.kaggle.com/datasets/jluza92/argentina-properati-listings-dataset-20202021/data">https://www.kaggle.com/datasets/jluza92/argentina-properati-listings-dataset-20202021/data</a> (1gb)</p>
+<p><strong>Libraries used</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Library</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pandas</td>
+<td>Data manipulation and analysis to work with structured data</td>
+</tr>
+<tr>
+<td>numpy</td>
+<td>For numerical operations to work on large and multi-dimensional arrays and matrices</td>
+</tr>
+<tr>
+<td>sklearn</td>
+<td>used for machine learning algorithms for classification, regression, clustering, dimensionality reduction</td>
+</tr>
+<tr>
+<td>matplotlib.pyplot</td>
+<td>Plotting library to create visualizations</td>
+</tr>
+<tr>
+<td>seaborn</td>
+<td>Statistical data visualization tool for informative statistical graphics</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variables:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start_date</td>
+<td>start date of the ad (2019-2020)</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>end date of the ad (2019-2020)</td>
+</tr>
+<tr>
+<td>created_on</td>
+<td>creation of the ad (2019-2020)</td>
+</tr>
+<tr>
+<td>lat</td>
+<td>latitude</td>
+</tr>
+<tr>
+<td>lon</td>
+<td>longitude</td>
+</tr>
+<tr>
+<td>l1</td>
+<td>country where the house is located</td>
+</tr>
+<tr>
+<td>l2</td>
+<td>region where the house is located</td>
+</tr>
+<tr>
+<td>l3</td>
+<td>neighbourhood where the house is located</td>
+</tr>
+<tr>
+<td>l4</td>
+<td>area of the neighbourhood where the house is located</td>
+</tr>
+<tr>
+<td>rooms</td>
+<td>Number of rooms</td>
+</tr>
+<tr>
+<td>bedrooms</td>
+<td>Number of bedrooms</td>
+</tr>
+<tr>
+<td>bathrooms</td>
+<td>Number of bathrooms</td>
+</tr>
+<tr>
+<td>surface_total</td>
+<td>total surface of the house</td>
+</tr>
+<tr>
+<td>surface_covered</td>
+<td>surface of the house (excluding balcony)</td>
+</tr>
+<tr>
+<td>price</td>
+<td>price</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>price currency</td>
+</tr>
+<tr>
+<td>title</td>
+<td>title of the ad</td>
+</tr>
+<tr>
+<td>description</td>
+<td>description of the property</td>
+</tr>
+<tr>
+<td>property_type</td>
+<td>type of housing offered</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-wrangling">Data wrangling<a hidden class="anchor" aria-hidden="true" href="#data-wrangling">#</a></h2>
+<p>Values to be predicted are in dfp dataframe.</p>
+<p><strong>Summary of numeric variables values in the testing dataframe (dfp)</strong></p>
+<p><img loading="lazy" src="/hpk_tabledfp.png" alt="table"  />
+</p>
+<p>The focus is on properties in Capital Federal (Buenos Aires) and the southern area (GBA Zona Sur), specifically flats and penthouses for sale in USD.</p>
+<p>In the training dataframe (dfef), only properties meeting the criteria in dfp and having a non-null price are considered. Irrelevant columns, such as empty or single-valued ones, are dropped.</p>
+<p>In both dataframes, unique neighborhood names are identified. We then search for these names in the &ldquo;title&rdquo; and &ldquo;description&rdquo; columns. If found and the &ldquo;Neighbourhood&rdquo; column is empty, it is filled with the discovered value.</p>
+<p>To handle remaining missing values in the &ldquo;Neighbourhood&rdquo; (l4) column, a KNN classifier is applied based on longitude and latitude.</p>
+<p><img loading="lazy" src="/hpk_knnl4.png" alt="code_1"  />
+</p>
+<p>To address missing values in the columns the following is used:</p>
+<ul>
+<li>bedrooms: the number of rooms minus 1 (deducting the bathroom).</li>
+<li>bathrooms: the number of rooms minus the bedrooms.</li>
+<li>total_surface: same as the value covered_surface, if available.</li>
+<li>covered_surface: same as the value total_surface, if available.</li>
+</ul>
+<p>Following this, KNN Imputer is utilized to handle missing values in latitude, longitude, covered_surface, and total_surface.</p>
+<p>With no missing values in longitude and latitude, the nan values for Neighborhoods are imputed with KNN classifier as with longitude and latitude the neighbourhood can be identified.</p>
+<p>Additionally, an array is constructed with keywords associated with luxurious apartments.</p>
+<p><code>palabras_clave = ['parrilla','balcon', 'patio','pileta', 'piletas', 'piscinas', 'gym', 'piscina', 'seguridad', 'subte', 'metrobus', 'terraza', 'jardin']</code></p>
+<p>These words are searched in the &rsquo;title&rsquo; and &lsquo;description&rsquo; columns. If they are present, in the new &rsquo;luxury&rsquo; column is assigned a value of 1; otherwise, it receives a 0.</p>
+<p>Each neighborhood corresponds to a &lsquo;Comuna&rsquo;. Using another array, a new &lsquo;Comuna&rsquo; column is created to associate each neighborhood with the correct Comuna.</p>
+<p>A &lsquo;median_price&rsquo; column is added by grouping the columns &rsquo;neighbourhood&rsquo;, &lsquo;rooms&rsquo;, &lsquo;bedrooms&rsquo;, &lsquo;bathrooms&rsquo; and &lsquo;property_type&rsquo; and calculating the median price value for each group. Missing values are addressed by employing a KNN Classifier for imputation.</p>
+<h2 id="model">Model<a hidden class="anchor" aria-hidden="true" href="#model">#</a></h2>
+<p>Dataframes are filtered to contain only numeric columns. Categorical columns are converted to dummies.</p>
+<p><strong>Features Selection</strong></p>
+<p>For regression models, the assumption is that the variables are indepdent, that means not dependent on others. To check this, correlation is tested and only variables with p-values &gt; 0.60 are included.</p>
+<p><strong>Importance Score</strong></p>
+<p><img loading="lazy" src="/hpk_featureselection.png" alt="graph_2"  />
+</p>
+<p>The most important variables chosen by the model (lon, lat, surface_covered, median_price) in addition to variable &ldquo;luxury&rdquo; (as better results are obtained), are used for the prediction.</p>
+<p>After trying different models and comparing the related mean squared error, it is considered that the ensamble Random Forest Regressor model provides the best accuracy. It is then applied to the training dataset and then to the testing dataset to get the predictions.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jfeggio.github.io/tags/uni/">uni</a></li>
+      <li><a href="https://jfeggio.github.io/tags/scikit-learn/">scikit-learn</a></li>
+      <li><a href="https://jfeggio.github.io/tags/predictive-modelling/">predictive-modelling</a></li>
+      <li><a href="https://jfeggio.github.io/tags/feature-selection/">feature-selection</a></li>
+      <li><a href="https://jfeggio.github.io/tags/data-wrangling/">data wrangling</a></li>
+      <li><a href="https://jfeggio.github.io/tags/sklearn/">sklearn</a></li>
+      <li><a href="https://jfeggio.github.io/tags/pandas/">pandas</a></li>
+      <li><a href="https://jfeggio.github.io/tags/numpy/">numpy</a></li>
+      <li><a href="https://jfeggio.github.io/tags/knn-classifier/">knn-classifier</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

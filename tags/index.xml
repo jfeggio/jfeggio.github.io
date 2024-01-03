@@ -53,11 +53,29 @@
     </item>
     
     <item>
+      <title>feature-selection</title>
+      <link>https://jfeggio.github.io/tags/feature-selection/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/feature-selection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>kmeans</title>
       <link>https://jfeggio.github.io/tags/kmeans/</link>
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/tags/kmeans/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>knn-classifier</title>
+      <link>https://jfeggio.github.io/tags/knn-classifier/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/knn-classifier/</guid>
       <description></description>
     </item>
     
@@ -89,11 +107,56 @@
     </item>
     
     <item>
+      <title>numpy</title>
+      <link>https://jfeggio.github.io/tags/numpy/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/numpy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pandas</title>
+      <link>https://jfeggio.github.io/tags/pandas/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/pandas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>predictive-modelling</title>
+      <link>https://jfeggio.github.io/tags/predictive-modelling/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/predictive-modelling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>reddit</title>
       <link>https://jfeggio.github.io/tags/reddit/</link>
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/tags/reddit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scikit-learn</title>
+      <link>https://jfeggio.github.io/tags/scikit-learn/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/scikit-learn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sklearn</title>
+      <link>https://jfeggio.github.io/tags/sklearn/</link>
+      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/sklearn/</guid>
       <description></description>
     </item>
     
