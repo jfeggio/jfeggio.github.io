@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Bank Marketing Audit | JFeggio</title>
+<meta name="keywords" content="uni, audit, seaborn, numpy, descriptive analysis">
+<meta name="description" content="Table of Contents Introduction Data Quality Analysis Loans Customers Segmentation Law 26.951 Results Presence of Missing Values in the Dataset Presence of Missing Values in the Dataset Low Success Rate in Marketing Campaigns Risk of Default Among Borrowers Non-Compliance with Law 26.951 Introduction Language used: Python
+Libraries used
+Library Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices matplotlib.">
+<meta name="author" content="">
+<link rel="canonical" href="https://jfeggio.github.io/posts/bank_audit/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://jfeggio.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jfeggio.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jfeggio.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jfeggio.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jfeggio.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Bank Marketing Audit" />
+<meta property="og:description" content="Table of Contents Introduction Data Quality Analysis Loans Customers Segmentation Law 26.951 Results Presence of Missing Values in the Dataset Presence of Missing Values in the Dataset Low Success Rate in Marketing Campaigns Risk of Default Among Borrowers Non-Compliance with Law 26.951 Introduction Language used: Python
+Libraries used
+Library Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices matplotlib." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jfeggio.github.io/posts/bank_audit/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-03T20:38:41+01:00" />
+<meta property="article:modified_time" content="2024-01-03T20:38:41+01:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bank Marketing Audit"/>
+<meta name="twitter:description" content="Table of Contents Introduction Data Quality Analysis Loans Customers Segmentation Law 26.951 Results Presence of Missing Values in the Dataset Presence of Missing Values in the Dataset Low Success Rate in Marketing Campaigns Risk of Default Among Borrowers Non-Compliance with Law 26.951 Introduction Language used: Python
+Libraries used
+Library Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices matplotlib."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://jfeggio.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Bank Marketing Audit",
+      "item": "https://jfeggio.github.io/posts/bank_audit/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bank Marketing Audit",
+  "name": "Bank Marketing Audit",
+  "description": "Table of Contents Introduction Data Quality Analysis Loans Customers Segmentation Law 26.951 Results Presence of Missing Values in the Dataset Presence of Missing Values in the Dataset Low Success Rate in Marketing Campaigns Risk of Default Among Borrowers Non-Compliance with Law 26.951 Introduction Language used: Python\nLibraries used\nLibrary Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices matplotlib.",
+  "keywords": [
+    "uni", "audit", "seaborn", "numpy", "descriptive analysis"
+  ],
+  "articleBody": "Table of Contents Introduction Data Quality Analysis Loans Customers Segmentation Law 26.951 Results Presence of Missing Values in the Dataset Presence of Missing Values in the Dataset Low Success Rate in Marketing Campaigns Risk of Default Among Borrowers Non-Compliance with Law 26.951 Introduction Language used: Python\nLibraries used\nLibrary Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices matplotlib.pyplot Plotting library to create visualizations seaborn Statistical data visualization tool for informative statistical graphics Goal: audit the generation and compliance of the information contained in the dataset.\nObservations:\nPresence of missing values in the dataset Low success rate in marketing campaigns Risk of bankruptcy among borrowers Non-compliance with Law 26.951 Dataset: Bank-full.csv, https://www.kaggle.com/code/vinicius150987/bank-full-machine-learning/input\nThe dataset used in this study on banking marketing was generated from direct marketing campaigns conducted by a banking institution in Portugal. These campaigns primarily involved telephone calls to customers with the aim of determining their interest in subscribing to a term deposit offered by the bank. The classification goal of this dataset is to predict whether a customer will subscribe to a term deposit or not (output variable “y”).\nThe dataset comprises a total of 16 input variables providing information about the bank customers and the last contact of the current campaign. These variables include the customer’s age, employment type, marital status, education, credit default status, average annual balance, existence of mortgage or personal loans, type of contact used, day and month of the last contact, duration of the last contact, the number of contacts made during this campaign, the number of days since the last contact from a previous campaign, the number of contacts made previously, and the outcome of the previous marketing campaign.\nTasks to be carried out:\nCompilation of applicable regulations Analysis of data quality Verification of the existence of loans associated with individuals who may currently lack sufficient funds to meet them. This analysis considers factors such as employment status, age, and current balance. Analysis of records to determine which contacted customers may be in violation of the provisions of Law 26.951*. *Law 26.951 in Argentina establishes a “Do Not Call Registry” to protect individuals from unwanted telemarketing calls. Companies must check and respect the registry, facing penalties for non-compliance.\nData Quality Analysis This database comprises a total of 45.211 records and 17 variables and there is not any missing data. A validation check is performed on the data’s validity in terms of its typology and range, ensuring consistency with common sense. For instance, it is verified that there are no ages below 18 years or minimum call durations of 0 seconds.\nMissing Values:\nThe presence of a value labeled “unknown” has been identified in the data, which is replaced with “NaN,” indicating the absence of data.\nSuggestion: It is recommended to fill in these missing values, as having the maximum amount of information about customers is essential. There is a particular emphasis on completing the data in the “contact” column, as it is necessary for establishing contact with the clients.\nVariables % of missing data Job 0,64% Education 4,11% Poutcome 81,75% Contact 28,80% Possible duplicated cases\nA total of 2576 cases have been identified where customers share the same age, occupation, marital status, educational level, bank account balance, and loan and credit situation. It’s essential to note that this database does not provide sensitive data that would allow for a more detailed analysis of these repeated cases to confirm whether they are duplicates. Therefore, it is assumed that the records are unique and not duplicated.\nOutliers previous marketing campaign (Graph 1) and current marketing campaign (Graph 2)\nRegarding the previous marketing campaign, it is worth to note that the highest number of calls was made to customers with a low annual balance, specifically those with a balance below 10.000. However, a particular case is observed where a married customer received more than 250 calls, which is significantly higher compared to other clients.\nIt has been observed that married men generally have higher balances in their bank accounts. Despite this, they have not been contacted with the same frequency as other customer groups. This suggests an opportunity for improvement in the contact strategy, as men with a good bank balance might be more inclined to invest more in the bank’s proposals.\nIn Graph 2, an analysis of bank balances in relation to the number of contacts during the current marketing campaign is conducted, taking into account the customers’ education level. The data distribution is more equitable, showing outliers in calls to people with not-so-high bank balances, as well as a lower number of contacts with clients who have higher balances.\nOutcome of calls by Job Type The group with the highest number of customers who opted to subscribe to a long-term deposit corresponds to those working in managerial positions. On the other hand, entrepreneurs were the category with the lowest success rate.\nAge Group Success cases 18, 30 1138 40, 50 1019 50, 60 811 60, 70 284 70, 100 218 The age groups with the highest success were those between 18 and 30 years, followed by the group of 40 to 50 years. Suggestion: importance of directing future marketing campaigns towards these specific demographic groups.\nLoans % of job type with loans or mortgage\nJob Type % blue-collar 27,15% management 18,67% technician 16,47% admin. 12,76% services 10,95% entrepreneur 3,65% self-employed 3,09% retired 2,50% unemployed 2,11% housemaid 1,75% student 0,92% Categories such as workers, managers, and technicians are the ones that have requested loans or mortgages the most. These professions are generally considered stable in terms of income and employment.\nThis finding suggests that individuals in these occupational categories have a higher need for financing to acquire real estate or cover other financial needs. Given the job stability associated with these professions, these clients are more likely to have the necessary resources to meet loan payments.\nSuggestion: strategic targeting of loan or mortgage offers should be directed towards these occupational categories.\n% of people with loans by marital status\nStatus % married 60,73% single 27,38% divorced 11,89% The 60.73% of clients with loans are married, 27.38% are single, and only 11.89% are divorced.\nCustomers Segmentation Two groups based on the specified type of work and financial stability associated with certain occupational categories.\nGroup 1 is composed of the following jobs: ‘management’, ’technician’, ‘blue-collar’, ‘admin.’, ‘services’. These categories are considered more financially stable.\nGroup 2 is composed of the following jobs: ’entrepreneur’, ‘retired’, ‘self-employed’, ‘unemployed’, ‘housemaid’, ‘student’. Professions included in this group may represent a higher financial risk.\nLoans by Age Group and Job Type\nIndividuals between 30 and 50 years old have a higher percentage of loan applications, indicating that they are likely to need more loans compared to other age groups. Additionally, clients in occupational Group 1 are more likely to apply for loans than those in Group 2, except in the age range of 60 to 70 years, where the trend is reversed.\nLoans by Marital status, Age Group and Job Type\nRegarding marital status, married individuals generally have more loan applications than divorced or single individuals, except in the age range of 60 to 70 years, where divorced individuals in occupational Group 2 have a higher percentage of loan applications.\nMarital status, Balance and Job Type\nA significant portion of clients with active loans has a bank account balance lower than 10.000 (7204 cases). This finding suggests that this group of clients could be considered a risk factor as they have a limited liquidity level. Additionally, it is noted that some clients have negative balances in their accounts.\nBy observing the percentage of the possibility of defaulting on loan payments by age group and job type, it is noted that as individuals are younger, the proportion of loans in default tends to be higher. However, as people age, the proportion of loans in default decreases.\nWhen analyzing the segmentation by occupational groups, it seems that the job type doesn’t have a significant impact on likelihood of defaulting on loan payments. Overall, the percentages of loans in default in the table are quite low, mostly below 1%. This suggests that the majority of people are paying their loans on time, regardless of their age or type of work.\nLaw 26.951 In the database 7.864 records classified as “Do not call” have been previously contacted, as reflected in the value -1 in the “pdays” column.\n- No Contact Contact Total Do not call 35116 7864 42980 Call 1838 393 2231 Total 36954 8257 45211 It appears to be a potential violation of Law 26.951 in 7.864 cases where customers registered in the “Do not call” registry received calls from the bank.\nSuggestion: It is necessary to conduct a review to determine whether these customers were enrolled in the registry at the beginning of the campaign during which they received such contacts, considering that the registry is updated monthly. This review will assess whether there was any violation of the law by making calls to these registered customers. To avoid any future non-compliance, it is recommended to conduct regular checks to ensure that the database is always up-to-date with the latest registry data. This will ensure that marketing communications are conducted in accordance with established regulations, and potential breaches of the law are avoided.\nTo ensure compliance with the law and avoid regulatory violations, the decision was made to take a sample and verify whether the customers were enrolled in the registry before the marketing campaign. After conducting this verification, it was discovered that there were no customers registered in the registry at that specific time.\nResults Presence of Missing Values in the Dataset Observations:\nMissing values have been identified in the dataset, with particular significance in the “contact” variable, accounting for approximately 28% of cases. Risk Level: Moderate Risk\nEffects:\nLack of contact information hinders direct communication with clients, potentially limiting promotional opportunities and personalized service offerings. Incomplete data may impact the quality and reliability of analyses and models applied to the data. Recommendation:\nEstablish a process to contact clients and collect missing information, either through phone calls or other forms of communication. If contact data is unavailable, consider using notifications via the application or platform used, requesting clients to complete their personal details. Low Success Rate in Marketing Campaigns Observations:\nClients with higher average balances have received fewer contacts compared to those with lower balances. It is estimated that clients with higher average balances may show more receptiveness to new banking initiatives. Risk Level: Low Risk\nEffects:\nLack of contact with clients having higher average balances may limit the success levels of marketing campaigns, overlooking the investment potential of this segment. Recommendation:\nIncrease the number of calls specifically targeting clients with good bank balances. Clients with higher average balances may be more open to considering proposals from the bank, enhancing the effectiveness of marketing campaigns. Strategically focus efforts on this segment, leveraging its investment potential and strengthening the relationship with the bank. Risk of Default Among Borrowers Observations:\nIt is noteworthy that 27.38% of loans have been granted to single clients, while 11.89% belong to divorced clients. This situation poses a potential risk, as these client categories live alone and may face difficulties in making payments in case of employment issues. A lower percentage of loans has been granted to students, unemployed individuals, and homemakers, categories with a lack of fixed income, presenting a higher level of risk. Risk Level: High Risk\nEffects:\nThere is a possibility of not receiving the full loan repayment due to a lack of funds from these clients. Recommendation:\nTo mitigate risk in these categories, it is recommended to request a guarantor when granting a loan to individuals belonging to any category considered “high risk.” This will provide greater security and support in case of financial difficulties on the part of the borrower. Non-Compliance with Law 26.951 Observations:\nIt was identified that a total of 7,864 clients were contacted despite being registered on the “Do Not Call” list. Risk Level: High Risk\nEffects:\nThrough a sample of data prior to the campaign, it was found that at that time, these clients were not yet registered on the list, emphasizing the need for regular checks to comply with current legislation. Recommendation:\nTo avoid incurring this risk, it is recommended to conduct regular checks of the “Do Not Call” registry. These periodic checks will verify the updating and accuracy of the list, thus preventing potential legal violations and ensuring compliance with regulations. ",
+  "wordCount" : "2089",
+  "inLanguage": "en",
+  "datePublished": "2024-01-03T20:38:41+01:00",
+  "dateModified": "2024-01-03T20:38:41+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jfeggio.github.io/posts/bank_audit/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JFeggio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jfeggio.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jfeggio.github.io/" accesskey="h" title="JFeggio (Alt + H)">JFeggio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jfeggio.github.io/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jfeggio.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jfeggio.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Bank Marketing Audit
+    </h1>
+  </header> 
+  <div class="post-content"><h3 id="table-of-contents">Table of Contents<a hidden class="anchor" aria-hidden="true" href="#table-of-contents">#</a></h3>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#data-quality-analysis">Data Quality Analysis</a>
+<ul>
+<li><a href="#loans">Loans</a></li>
+<li><a href="#customers-segmentation">Customers Segmentation</a></li>
+<li><a href="#law-26.951">Law 26.951</a></li>
+</ul>
+</li>
+<li><a href="#results">Results</a>
+<ul>
+<li><a href="#presence-of-missing-values-in-the-dataset">Presence of Missing Values in the Dataset</a></li>
+<li><a href="#presence-of-missing-values-in-the-dataset">Presence of Missing Values in the Dataset</a></li>
+<li><a href="#low-success-rate-in-marketing-campaigns">Low Success Rate in Marketing Campaigns</a></li>
+<li><a href="#risk-of-default-among-borrowers">Risk of Default Among Borrowers</a></li>
+<li><a href="#non-compliance-with-law-26.951">Non-Compliance with Law 26.951</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p><strong>Language used:</strong> Python</p>
+<p><strong>Libraries used</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Library</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pandas</td>
+<td>Data manipulation and analysis to work with structured data</td>
+</tr>
+<tr>
+<td>numpy</td>
+<td>For numerical operations to work on large and multi-dimensional arrays and matrices</td>
+</tr>
+<tr>
+<td>matplotlib.pyplot</td>
+<td>Plotting library to create visualizations</td>
+</tr>
+<tr>
+<td>seaborn</td>
+<td>Statistical data visualization tool for informative statistical graphics</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Goal:</strong>  audit the generation and compliance of the information contained in the dataset.</p>
+<p><strong>Observations:</strong></p>
+<ul>
+<li>Presence of missing values in the dataset</li>
+<li>Low success rate in marketing campaigns</li>
+<li>Risk of bankruptcy among borrowers</li>
+<li>Non-compliance with Law 26.951</li>
+</ul>
+<p><strong>Dataset</strong>: Bank-full.csv, <a href="https://www.kaggle.com/code/vinicius150987/bank-full-machine-learning/input">https://www.kaggle.com/code/vinicius150987/bank-full-machine-learning/input</a></p>
+<p>The dataset used in this study on banking marketing was generated from direct marketing campaigns conducted by a banking institution in Portugal. These campaigns primarily involved telephone calls to customers with the aim of determining their interest in subscribing to a term deposit offered by the bank. The classification goal of this dataset is to predict whether a customer will subscribe to a term deposit or not (output variable &ldquo;y&rdquo;).</p>
+<p>The dataset comprises a total of 16 input variables providing information about the bank customers and the last contact of the current campaign. These variables include the customer&rsquo;s age, employment type, marital status, education, credit default status, average annual balance, existence of mortgage or personal loans, type of contact used, day and month of the last contact, duration of the last contact, the number of contacts made during this campaign, the number of days since the last contact from a previous campaign, the number of contacts made previously, and the outcome of the previous marketing campaign.</p>
+<p><strong>Tasks to be carried out:</strong></p>
+<ul>
+<li>Compilation of applicable regulations</li>
+<li>Analysis of data quality</li>
+<li>Verification of the existence of loans associated with individuals who may currently lack sufficient funds to meet them. This analysis considers factors such as employment status, age, and current balance.</li>
+<li>Analysis of records to determine which contacted customers may be in violation of the provisions of Law 26.951*.</li>
+</ul>
+<p>*Law 26.951 in Argentina establishes a &ldquo;Do Not Call Registry&rdquo; to protect individuals from unwanted telemarketing calls. Companies must check and respect the registry, facing penalties for non-compliance.</p>
+<h2 id="data-quality-analysis">Data Quality Analysis<a hidden class="anchor" aria-hidden="true" href="#data-quality-analysis">#</a></h2>
+<p>This database comprises a total of 45.211 records and 17 variables and there is not any missing data.
+A validation check is performed on the data&rsquo;s validity in terms of its typology and range, ensuring consistency with common sense. For instance, it is verified that there are no ages below 18 years or minimum call durations of 0 seconds.</p>
+<p><img loading="lazy" src="/audbank_tabledescr.png" alt="table"  />
+</p>
+<p><strong>Missing Values:</strong></p>
+<p>The presence of a value labeled &ldquo;unknown&rdquo; has been identified in the data, which is replaced with &ldquo;NaN,&rdquo; indicating the absence of data.</p>
+<p><strong>Suggestion:</strong> It is recommended to fill in these missing values, as having the maximum amount of information about customers is essential. There is a particular emphasis on completing the data in the &ldquo;contact&rdquo; column, as it is necessary for establishing contact with the clients.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Variables</strong></th>
+<th><strong>% of missing data</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Job</td>
+<td>0,64%</td>
+</tr>
+<tr>
+<td>Education</td>
+<td>4,11%</td>
+</tr>
+<tr>
+<td>Poutcome</td>
+<td>81,75%</td>
+</tr>
+<tr>
+<td>Contact</td>
+<td>28,80%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Possible duplicated cases</strong></p>
+<p>A total of 2576 cases have been identified where customers share the same age, occupation, marital status, educational level, bank account balance, and loan and credit situation. It&rsquo;s essential to note that this database does not provide sensitive data that would allow for a more detailed analysis of these repeated cases to confirm whether they are  duplicates. Therefore, it is assumed that the records are unique and not duplicated.</p>
+<p><strong>Outliers previous marketing campaign (Graph 1) and current marketing campaign (Graph 2)</strong></p>
+<p><img loading="lazy" src="/audbank_outliers.png" alt="graph_1"  />
+</p>
+<p>Regarding the previous marketing campaign, it is worth to note that the highest number of calls was made to customers with a low annual balance, specifically those with a balance below 10.000. However, a particular case is observed where a married customer received more than 250 calls, which is significantly higher compared to other clients.</p>
+<p>It has been observed that married men generally have higher balances in their bank accounts. Despite this, they have not been contacted with the same frequency as other customer groups. This suggests an opportunity for improvement in the contact strategy, as men with a good bank balance might be more inclined to invest more in the bank&rsquo;s proposals.</p>
+<p>In Graph 2, an analysis of bank balances in relation to the number of contacts during the current marketing campaign is conducted, taking into account the customers&rsquo; education level. The data distribution is more equitable, showing outliers in calls to people with not-so-high bank balances, as well as a lower number of contacts with clients who have higher balances.</p>
+<p><strong>Outcome of calls by Job Type</strong>
+<img loading="lazy" src="/audbank_outcome.png" alt="graph_2"  />
+</p>
+<p>The group with the highest number of customers who opted to subscribe to a long-term deposit corresponds to those working in managerial positions. On the other hand, entrepreneurs were the category with the lowest success rate.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Age Group</strong></th>
+<th><strong>Success cases</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>18, 30</td>
+<td>1138</td>
+</tr>
+<tr>
+<td>40, 50</td>
+<td>1019</td>
+</tr>
+<tr>
+<td>50, 60</td>
+<td>811</td>
+</tr>
+<tr>
+<td>60, 70</td>
+<td>284</td>
+</tr>
+<tr>
+<td>70, 100</td>
+<td>218</td>
+</tr>
+</tbody>
+</table>
+<p>The age groups with the highest success were those between 18 and 30 years, followed by the group of 40 to 50 years.
+<strong>Suggestion:</strong> importance of directing future marketing campaigns towards these specific demographic groups.</p>
+<h3 id="loans">Loans<a hidden class="anchor" aria-hidden="true" href="#loans">#</a></h3>
+<p><strong>% of job type with loans or mortgage</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Job Type</strong></th>
+<th><strong>%</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>blue-collar</td>
+<td>27,15%</td>
+</tr>
+<tr>
+<td>management</td>
+<td>18,67%</td>
+</tr>
+<tr>
+<td>technician</td>
+<td>16,47%</td>
+</tr>
+<tr>
+<td>admin.</td>
+<td>12,76%</td>
+</tr>
+<tr>
+<td>services</td>
+<td>10,95%</td>
+</tr>
+<tr>
+<td>entrepreneur</td>
+<td>3,65%</td>
+</tr>
+<tr>
+<td>self-employed</td>
+<td>3,09%</td>
+</tr>
+<tr>
+<td>retired</td>
+<td>2,50%</td>
+</tr>
+<tr>
+<td>unemployed</td>
+<td>2,11%</td>
+</tr>
+<tr>
+<td>housemaid</td>
+<td>1,75%</td>
+</tr>
+<tr>
+<td>student</td>
+<td>0,92%</td>
+</tr>
+</tbody>
+</table>
+<p>Categories such as workers, managers, and technicians are the ones that have requested loans or mortgages the most. These professions are generally considered stable in terms of income and employment.</p>
+<p>This finding suggests that individuals in these occupational categories have a higher need for financing to acquire real estate or cover other financial needs. Given the job stability associated with these professions, these clients are more likely to have the necessary resources to meet loan payments.</p>
+<p><strong>Suggestion</strong>: strategic targeting of loan or mortgage offers should be directed towards these occupational categories.</p>
+<p><strong>% of people with loans by marital status</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Status</strong></th>
+<th><strong>%</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>married</td>
+<td>60,73%</td>
+</tr>
+<tr>
+<td>single</td>
+<td>27,38%</td>
+</tr>
+<tr>
+<td>divorced</td>
+<td>11,89%</td>
+</tr>
+</tbody>
+</table>
+<p>The 60.73% of clients with loans are married, 27.38% are single, and only 11.89% are divorced.</p>
+<h3 id="customers-segmentation">Customers Segmentation<a hidden class="anchor" aria-hidden="true" href="#customers-segmentation">#</a></h3>
+<p>Two groups based on the specified type of work and financial stability associated with certain occupational categories.</p>
+<ul>
+<li>
+<p><strong>Group 1</strong> is composed of the following jobs: &lsquo;management&rsquo;, &rsquo;technician&rsquo;, &lsquo;blue-collar&rsquo;, &lsquo;admin.&rsquo;, &lsquo;services&rsquo;. These categories are considered more financially stable.</p>
+</li>
+<li>
+<p><strong>Group 2</strong> is composed of the following jobs: &rsquo;entrepreneur&rsquo;, &lsquo;retired&rsquo;, &lsquo;self-employed&rsquo;, &lsquo;unemployed&rsquo;, &lsquo;housemaid&rsquo;, &lsquo;student&rsquo;. Professions included in this group may represent a higher financial risk.</p>
+</li>
+</ul>
+<p><strong>Loans by Age Group and Job Type</strong></p>
+<p>Individuals between 30 and 50 years old have a higher percentage of loan applications, indicating that they are likely to need more loans compared to other age groups. Additionally, clients in occupational Group 1 are more likely to apply for loans than those in Group 2, except in the age range of 60 to 70 years, where the trend is reversed.</p>
+<p><strong>Loans by Marital status, Age Group and Job Type</strong></p>
+<p>Regarding marital status, married individuals generally have more loan applications than divorced or single individuals, except in the age range of 60 to 70 years, where divorced individuals in occupational Group 2 have a higher percentage of loan applications.</p>
+<p><strong>Marital status, Balance and Job Type</strong></p>
+<p><img loading="lazy" src="/audbank_jobgroup.png" alt="graph_3"  />
+</p>
+<p>A significant portion of clients with active loans has a bank account balance lower than 10.000 (7204 cases). This finding suggests that this group of clients could be considered a risk factor as they have a limited liquidity level. Additionally, it is noted that some clients have negative balances in their accounts.</p>
+<p>By observing the percentage of the possibility of defaulting on loan payments by age group and job type, it is noted that as individuals are younger, the proportion of loans in default tends to be higher. However, as people age, the proportion of loans in default decreases.</p>
+<p>When analyzing the segmentation by occupational groups, it seems that the job type doesn&rsquo;t have a significant impact on likelihood of defaulting on loan payments. Overall, the percentages of loans in default in the table are quite low, mostly below 1%. This suggests that the majority of people are paying their loans on time, regardless of their age or type of work.</p>
+<h3 id="law-26951">Law 26.951<a hidden class="anchor" aria-hidden="true" href="#law-26951">#</a></h3>
+<p>In the database 7.864 records classified as &ldquo;Do not call&rdquo; have been previously contacted, as reflected in the value -1 in the &ldquo;pdays&rdquo; column.</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>No Contact</th>
+<th>Contact</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Do not call</td>
+<td>35116</td>
+<td>7864</td>
+<td>42980</td>
+</tr>
+<tr>
+<td>Call</td>
+<td>1838</td>
+<td>393</td>
+<td>2231</td>
+</tr>
+<tr>
+<td><em>Total</em></td>
+<td>36954</td>
+<td>8257</td>
+<td>45211</td>
+</tr>
+</tbody>
+</table>
+<p>It appears to be a potential violation of Law 26.951 in 7.864 cases where customers registered in the &ldquo;Do not call&rdquo; registry received calls from the bank.</p>
+<p><strong>Suggestion:</strong> It is necessary to conduct a review to determine whether these customers were enrolled in the registry at the beginning of the campaign during which they received such contacts, considering that the registry is updated monthly. This review will assess whether there was any violation of the law by making calls to these registered customers.
+To avoid any future non-compliance, it is recommended to conduct regular checks to ensure that the database is always up-to-date with the latest registry data. This will ensure that marketing communications are conducted in accordance with established regulations, and potential breaches of the law are avoided.</p>
+<p>To ensure compliance with the law and avoid regulatory violations, the decision was made to take a sample and verify whether the customers were enrolled in the registry before the marketing campaign. After conducting this verification, it was discovered that there were no customers registered in the registry at that specific time.</p>
+<h2 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h2>
+<h3 id="presence-of-missing-values-in-the-dataset">Presence of Missing Values in the Dataset<a hidden class="anchor" aria-hidden="true" href="#presence-of-missing-values-in-the-dataset">#</a></h3>
+<p><strong>Observations</strong>:</p>
+<ul>
+<li>Missing values have been identified in the dataset, with particular significance in the &ldquo;contact&rdquo; variable, accounting for approximately 28% of cases.</li>
+</ul>
+<p><strong>Risk Level:</strong> Moderate Risk</p>
+<p><strong>Effects:</strong></p>
+<ul>
+<li>Lack of contact information hinders direct communication with clients, potentially limiting promotional opportunities and personalized service offerings.</li>
+<li>Incomplete data may impact the quality and reliability of analyses and models applied to the data.</li>
+</ul>
+<p><strong>Recommendation:</strong></p>
+<ul>
+<li>Establish a process to contact clients and collect missing information, either through phone calls or other forms of communication.</li>
+<li>If contact data is unavailable, consider using notifications via the application or platform used, requesting clients to complete their personal details.</li>
+</ul>
+<h3 id="low-success-rate-in-marketing-campaigns">Low Success Rate in Marketing Campaigns<a hidden class="anchor" aria-hidden="true" href="#low-success-rate-in-marketing-campaigns">#</a></h3>
+<p><strong>Observations:</strong></p>
+<ul>
+<li>Clients with higher average balances have received fewer contacts compared to those with lower balances.</li>
+<li>It is estimated that clients with higher average balances may show more receptiveness to new banking initiatives.</li>
+</ul>
+<p><strong>Risk Level</strong>: Low Risk</p>
+<p><strong>Effects</strong>:</p>
+<ul>
+<li>Lack of contact with clients having higher average balances may limit the success levels of marketing campaigns, overlooking the investment potential of this segment.</li>
+</ul>
+<p><strong>Recommendation</strong>:</p>
+<ul>
+<li>Increase the number of calls specifically targeting clients with good bank balances.</li>
+<li>Clients with higher average balances may be more open to considering proposals from the bank, enhancing the effectiveness of marketing campaigns.</li>
+<li>Strategically focus efforts on this segment, leveraging its investment potential and strengthening the relationship with the bank.</li>
+</ul>
+<h3 id="risk-of-default-among-borrowers">Risk of Default Among Borrowers<a hidden class="anchor" aria-hidden="true" href="#risk-of-default-among-borrowers">#</a></h3>
+<p><strong>Observations</strong>:</p>
+<ul>
+<li>It is noteworthy that 27.38% of loans have been granted to single clients, while 11.89% belong to divorced clients. This situation poses a potential risk, as these client categories live alone and may face difficulties in making payments in case of employment issues.</li>
+<li>A lower percentage of loans has been granted to students, unemployed individuals, and homemakers, categories with a lack of fixed income, presenting a higher level of risk.</li>
+</ul>
+<p><strong>Risk Level</strong>: High Risk</p>
+<p><strong>Effects</strong>:</p>
+<ul>
+<li>There is a possibility of not receiving the full loan repayment due to a lack of funds from these clients.</li>
+</ul>
+<p><strong>Recommendation</strong>:</p>
+<ul>
+<li>To mitigate risk in these categories, it is recommended to request a guarantor when granting a loan to individuals belonging to any category considered &ldquo;high risk.&rdquo; This will provide greater security and support in case of financial difficulties on the part of the borrower.</li>
+</ul>
+<h3 id="non-compliance-with-law-26951">Non-Compliance with Law 26.951<a hidden class="anchor" aria-hidden="true" href="#non-compliance-with-law-26951">#</a></h3>
+<p><strong>Observations</strong>:</p>
+<ul>
+<li>It was identified that a total of 7,864 clients were contacted despite being registered on the &ldquo;Do Not Call&rdquo; list.</li>
+</ul>
+<p><strong>Risk Level</strong>: High Risk</p>
+<p><strong>Effects</strong>:</p>
+<ul>
+<li>Through a sample of data prior to the campaign, it was found that at that time, these clients were not yet registered on the list, emphasizing the need for regular checks to comply with current legislation.</li>
+</ul>
+<p><strong>Recommendation</strong>:</p>
+<ul>
+<li>To avoid incurring this risk, it is recommended to conduct regular checks of the &ldquo;Do Not Call&rdquo; registry. These periodic checks will verify the updating and accuracy of the list, thus preventing potential legal violations and ensuring compliance with regulations.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jfeggio.github.io/tags/uni/">uni</a></li>
+      <li><a href="https://jfeggio.github.io/tags/audit/">audit</a></li>
+      <li><a href="https://jfeggio.github.io/tags/seaborn/">seaborn</a></li>
+      <li><a href="https://jfeggio.github.io/tags/numpy/">numpy</a></li>
+      <li><a href="https://jfeggio.github.io/tags/descriptive-analysis/">descriptive analysis</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

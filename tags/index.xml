@@ -6,7 +6,52 @@
     <description>Recent content in Tags on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jan 2024 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>audit</title>
+      <link>https://jfeggio.github.io/tags/audit/</link>
+      <pubDate>Wed, 03 Jan 2024 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/audit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>descriptive analysis</title>
+      <link>https://jfeggio.github.io/tags/descriptive-analysis/</link>
+      <pubDate>Wed, 03 Jan 2024 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/descriptive-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>numpy</title>
+      <link>https://jfeggio.github.io/tags/numpy/</link>
+      <pubDate>Wed, 03 Jan 2024 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/numpy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seaborn</title>
+      <link>https://jfeggio.github.io/tags/seaborn/</link>
+      <pubDate>Wed, 03 Jan 2024 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/seaborn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>uni</title>
+      <link>https://jfeggio.github.io/tags/uni/</link>
+      <pubDate>Wed, 03 Jan 2024 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/tags/uni/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>data wrangling</title>
       <link>https://jfeggio.github.io/tags/data-wrangling/</link>
@@ -31,15 +76,6 @@
       <pubDate>Sun, 31 Dec 2023 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/tags/panel-data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>uni</title>
-      <link>https://jfeggio.github.io/tags/uni/</link>
-      <pubDate>Sun, 31 Dec 2023 20:38:41 +0100</pubDate>
-      
-      <guid>https://jfeggio.github.io/tags/uni/</guid>
       <description></description>
     </item>
     
@@ -103,15 +139,6 @@
       <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/tags/nltk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>numpy</title>
-      <link>https://jfeggio.github.io/tags/numpy/</link>
-      <pubDate>Fri, 22 Dec 2023 20:38:41 +0100</pubDate>
-      
-      <guid>https://jfeggio.github.io/tags/numpy/</guid>
       <description></description>
     </item>
     
@@ -274,15 +301,6 @@
       <pubDate>Thu, 22 Dec 2022 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/tags/correlation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>descriptive analysis</title>
-      <link>https://jfeggio.github.io/tags/descriptive-analysis/</link>
-      <pubDate>Thu, 22 Dec 2022 20:38:41 +0100</pubDate>
-      
-      <guid>https://jfeggio.github.io/tags/descriptive-analysis/</guid>
       <description></description>
     </item>
     

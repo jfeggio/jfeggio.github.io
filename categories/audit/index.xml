@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>audit on JFeggio</title>
+    <link>https://jfeggio.github.io/categories/audit/</link>
+    <description>Recent content in audit on JFeggio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Jan 2024 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/categories/audit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bank Marketing Audit</title>
+      <link>https://jfeggio.github.io/posts/bank_audit/</link>
+      <pubDate>Wed, 03 Jan 2024 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/bank_audit/</guid>
+      <description>Table of Contents Introduction Data Quality Analysis Loans Customers Segmentation Law 26.951 Results Presence of Missing Values in the Dataset Presence of Missing Values in the Dataset Low Success Rate in Marketing Campaigns Risk of Default Among Borrowers Non-Compliance with Law 26.951 Introduction Language used: Python
+Libraries used
+Library Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices matplotlib.</description>
+    </item>
+    
+  </channel>
+</rss>

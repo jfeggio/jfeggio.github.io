@@ -6,7 +6,34 @@
     <description>Recent content in Categories on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jan 2024 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>audit</title>
+      <link>https://jfeggio.github.io/categories/audit/</link>
+      <pubDate>Wed, 03 Jan 2024 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/categories/audit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://jfeggio.github.io/categories/python/</link>
+      <pubDate>Wed, 03 Jan 2024 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>uni</title>
+      <link>https://jfeggio.github.io/categories/uni/</link>
+      <pubDate>Wed, 03 Jan 2024 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/categories/uni/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>multivariate analysis</title>
       <link>https://jfeggio.github.io/categories/multivariate-analysis/</link>
@@ -22,24 +49,6 @@
       <pubDate>Sun, 31 Dec 2023 20:38:41 +0100</pubDate>
       
       <guid>https://jfeggio.github.io/categories/panel-data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://jfeggio.github.io/categories/python/</link>
-      <pubDate>Sun, 31 Dec 2023 20:38:41 +0100</pubDate>
-      
-      <guid>https://jfeggio.github.io/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>uni</title>
-      <link>https://jfeggio.github.io/categories/uni/</link>
-      <pubDate>Sun, 31 Dec 2023 20:38:41 +0100</pubDate>
-      
-      <guid>https://jfeggio.github.io/categories/uni/</guid>
       <description></description>
     </item>
     

@@ -6,7 +6,18 @@
     <description>Recent content in python on JFeggio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Dec 2023 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jan 2024 20:38:41 +0100</lastBuildDate><atom:link href="https://jfeggio.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bank Marketing Audit</title>
+      <link>https://jfeggio.github.io/posts/bank_audit/</link>
+      <pubDate>Wed, 03 Jan 2024 20:38:41 +0100</pubDate>
+      
+      <guid>https://jfeggio.github.io/posts/bank_audit/</guid>
+      <description>Table of Contents Introduction Data Quality Analysis Loans Customers Segmentation Law 26.951 Results Presence of Missing Values in the Dataset Presence of Missing Values in the Dataset Low Success Rate in Marketing Campaigns Risk of Default Among Borrowers Non-Compliance with Law 26.951 Introduction Language used: Python
+Libraries used
+Library Description pandas Data manipulation and analysis to work with structured data numpy For numerical operations to work on large and multi-dimensional arrays and matrices matplotlib.</description>
+    </item>
+    
     <item>
       <title>Panel data analysis for Happiness reports (2015-2020) </title>
       <link>https://jfeggio.github.io/posts/panel_analysis/</link>
